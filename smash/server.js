@@ -2,10 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const http = require("http");
 const PORT = process.env.PORT || 8000;
-
 const app = express();
 const server = http.createServer(app);
-
 const cors = require("cors");
 const corsOptions = {
     origin: [
@@ -15,9 +13,9 @@ const corsOptions = {
     methods: ["GET", "PUT", "POST"],
     optionsSuccessStatus: 200,
   };
-
 const passport = require("passport");
-app.use(passport.initialize());
+const passportRoutes = require("./routes/passportRoutes");
+app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
       secret: "supersecret",
@@ -25,16 +23,14 @@ app.use(
       saveUninitialized: true,
     })
   );
+app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(express.urlencoded({ extended: true }));
+app.use(passportRoutes);
 app.use(express.json());
 app.use(cors(corsOptions));
-
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
 server.listen(PORT, () => {
     console.log("app running on:", PORT);
 });

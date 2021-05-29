@@ -3,7 +3,7 @@ import React from "react";
 function LoginWindow(){
 
     const googleLogin = () => {
-        window.open(process.env.GOOGLE_URL || "http://localhost:8080/auth/google", "_self");
+        window.open(process.env.GOOGLE_URL || "http://localhost:8000/auth/google", "_self");
     }
 
     return(
