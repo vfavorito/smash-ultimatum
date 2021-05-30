@@ -3,6 +3,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const dotenv = require("dotenv");
 
+const User = require("../models/user");
+
 dotenv.config();
 
 passport.serializeUser((user, done) => {
@@ -19,29 +21,22 @@ passport.use(new GoogleStrategy({
     callbackURL: "/auth/google/callback"
 },
     function (accessToken, refreshToken, profile, cb) {
+        console.log("in googlestrategy");
+        User.findOne({ userId: profile.id })
+            .then(dbModel => {
+                if (!dbModel) {
 
-        // User.findOrCreate({ id: profile.id }, function (err, user) {
-        //   return cb(err, user);
-        // });
-        console.log("check user");
-        console.log(profile);
-        // User.findOne({ userId: profile.id })
-        //     .then(dbModel => {
-        //         if (!dbModel) {
-
-        //             console.log("create user");
-        //             User.create({
-        //                 name: profile._json.name,
-        //                 portrait: profile.photos[0].value,
-        //                 userId: profile.id
-        //             })
-        //                 .then(dbModel => console.log(dbModel))
-        //                 .catch(err => console.log(err));
-        //         }
-        //     })
-        //     .catch(err => console.log(err));
-
-        // console.log(profile);
+                    console.log("create user");
+                    User.create({
+                        name: profile._json.name,
+                        portrait: profile.photos[0].value,
+                        userId: profile.id
+                    })
+                        .then(dbModel => console.log(dbModel))
+                        .catch(err => console.log(err));
+                }
+            })
+            .catch(err => console.log(err));
         cb(null, profile);
     }
 ));

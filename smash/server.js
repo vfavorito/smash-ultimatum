@@ -1,9 +1,11 @@
 const express = require("express");
 const session = require("express-session");
 const http = require("http");
+const path =require("path");
 const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
+const mongoose = require("mongoose");
 const cors = require("cors");
 const corsOptions = {
     origin: [
@@ -15,6 +17,7 @@ const corsOptions = {
   };
 const passport = require("passport");
 const passportRoutes = require("./routes/passportRoutes");
+const userRoutes = require("./routes/userRoutes");
 app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
@@ -26,10 +29,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passportRoutes);
+app.use(userRoutes)
 app.use(express.json());
 app.use(cors(corsOptions));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../smash/client/public/index.html"));
 });
 server.listen(PORT, () => {
     console.log("app running on:", PORT);
