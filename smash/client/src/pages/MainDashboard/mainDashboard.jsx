@@ -6,6 +6,7 @@ import TournamentInvites from "../../components/TournamentInvites/tournamentInvi
 import IronManInvites from "../../components/IronManInvites/ironManInvites";
 import FavoriteCharacter from "../../components/FavoriteCharacter/favoriteCharacter";
 import UserStats from "../../components/UserStats/userStats";
+
 function MainDashboard(){
     const { name, portrait } = useContext(UserContext);
     return(
