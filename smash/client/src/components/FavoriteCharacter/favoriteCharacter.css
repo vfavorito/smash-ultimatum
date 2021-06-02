@@ -1,0 +1,39 @@
+.container{
+    overflow: auto;
+    height:350px;
+}
+.charPic{
+    width:80px;
+    height:80px;
+    background-image: url("https://gbatemp.net/attachments/150858/");
+    background-size:100%;
+    margin:20px;
+}
+.charPic:hover{
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+    border-radius: 100%;
+    width:100px;
+    height:100px;
+    margin:10px;
+
+}
+.charCard{
+    display:inline-block;
+    text-align: center;
+    border-style: double;
+    background-color: rgb(235, 235, 235);
+    margin:5px;
+}
+.charCard:hover .charPic{
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+    border-radius: 100%;
+    width:100px;
+    height:100px;
+    margin:10px;
+    
+}
+.charCard:hover .charText{
+    text-decoration: underline;
+}
