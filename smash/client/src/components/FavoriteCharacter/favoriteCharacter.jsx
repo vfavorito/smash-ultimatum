@@ -1,17 +1,21 @@
 import { React } from "react";
 import CharData from "../../utils/SmashCharacters.json";
-import "./favoriteCharacter.css"
+import "./favoriteCharacter.css";
 
-function FavoriteCharacter(){
-    console.log(CharData.characters)
+function FavoriteCharacter(props){
+
     return(
         <div>
-        <h2>Favorite Character</h2>
-        <div className="container">
+        <h2>Favorite Character:</h2>
+        <div className="container" id="container">
         {CharData.characters.map(character => {
             return(
-            <div className="charCard" key={character.id}>
-            <img alt={character.name} src={character.portrait} className="charPic" />
+            <div className="charCard"
+            key={character.id}
+            onClick={() => props.themeChanger(character.color)}>
+            <img alt={character.name}
+            src={character.portrait}
+            className="charPic" />
             <p className="charText">{character.name}</p>
             </div>
             )

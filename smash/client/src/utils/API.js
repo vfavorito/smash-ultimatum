@@ -15,7 +15,6 @@ const API = {
     },
     // Returns users using their initial google of github id, stored in user.userId
     getUserByUserId: function (id) {
-        console.log("in getusers by users id", id)
         return axios.get("/api/users/userid/" + id);
     },
     // Gets user by user name

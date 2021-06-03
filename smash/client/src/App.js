@@ -12,7 +12,6 @@ function App() {
     id: "",
     name: "",
     portrait: "",
-    // invites: [],
     // loggedIn: false,
   });
 
@@ -20,19 +19,15 @@ function App() {
     axios
       .get("/User")
       .then((res) => {
-        console.log("first res", res);
-        console.log(res.data.id, "------------------------------------------------------------------");
         if (res.data.id) {
         API.getUserByUserId(res.data.id)
           .then(res => {
-            console.log("in api then")
             setUserState({
               ...userState,
               id: res.data._id,
               name: res.data.name,
               portrait: res.data.portrait,
             });
-            console.log(res, "second res");
           });
         }
         else{
@@ -43,7 +38,7 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={userState}>
+    <UserContext.Provider value={userState} id="container">
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />

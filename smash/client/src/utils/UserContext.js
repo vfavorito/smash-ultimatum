@@ -3,7 +3,7 @@ import React from "react";
 const UserContext = React.createContext({
     id: "",
     name: "",
-    portrait: ""
+    portrait: "",
 });
 
 export default UserContext;

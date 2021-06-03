@@ -1,0 +1,9 @@
+.userInfo{
+    display: inline-block;
+}
+#dashboard{
+    height: 100vh;
+}
+.content{
+    text-align: center;
+}
