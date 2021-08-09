@@ -12,7 +12,6 @@ function App() {
     id: "",
     name: "",
     portrait: "",
-    // loggedIn: false,
   });
 
   useEffect(() => {

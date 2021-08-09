@@ -1,17 +1,28 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import UserContext from "../../utils/UserContext";
 import FavoriteCharacter from "../../components/FavoriteCharacter/favoriteCharacter";
 import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
 import JoinIronMan from "../../components/JoinIronMan/joinIronMan";
+import FavCharStats from "../../components/FavCharStats/favCharStats";
 import { Container, Row, Col } from "react-bootstrap";
 import "./mainDashboard.css";
 
 function MainDashboard() {
     const { name, portrait } = useContext(UserContext);
 
-    const changeTheme = (color) => {
-        document.getElementById("dashboard").style.backgroundColor = color
+    const [charState, setCharState] = useState({
+        character: "",
+        portrait: "",
+    });
+
+    const changeTheme = (character, portrait, color) => {
+        setCharState({
+            ...charState,
+            character:character,
+            portrait:portrait,
+        })
+        document.getElementById("dashboard").style.backgroundColor = color;
     }
 
     return (
@@ -32,6 +43,7 @@ function MainDashboard() {
                 <Col sm={12} md={4}>
                     <CreateIronMan />
                     <JoinIronMan />
+                    <FavCharStats stats={charState}/>
                 </Col>
                 <Col sm={12} md={4}>
                     <UserStats />

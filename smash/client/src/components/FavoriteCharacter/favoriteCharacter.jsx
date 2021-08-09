@@ -12,7 +12,7 @@ function FavoriteCharacter(props){
             return(
             <div className="charCard"
             key={character.id}
-            onClick={() => props.themeChanger(character.color)}>
+            onClick={() => props.themeChanger(character.name, character.portrait, character.color)}>
             <img alt={character.name}
             src={character.portrait}
             className="charPic" />
