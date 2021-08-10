@@ -9,8 +9,6 @@ const API = {
     
     // Saves an Arena to the database
     saveArena: function (groupData, id) {
-        console.log("groupData", groupData);
-        console.log("id", id)
         return axios.post("/api/arenas/" + id,groupData);
     },
     

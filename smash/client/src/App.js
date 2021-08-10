@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./pages/LoginScreen/loginScreen";
 import Dashboard from "./pages/MainDashboard/mainDashboard";
+import Arena from "./pages/Arena/arena";
 import axios from "axios";
 import API from "./utils/API";
 import UserContext from "./utils/UserContext";
@@ -42,6 +43,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/arena" component={Arena} />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>
