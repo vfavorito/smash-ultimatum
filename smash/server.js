@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
 const mongoose = require("mongoose");
+const passport = require("passport");
+const passportRoutes = require("./routes/passportRoutes");
+const userRoutes = require("./routes/userRoutes");
+const arenaRoutes = require("./routes/arenaRoutes");
 const cors = require("cors");
 const corsOptions = {
     origin: [
@@ -15,10 +19,8 @@ const corsOptions = {
     methods: ["GET", "PUT", "POST"],
     optionsSuccessStatus: 200,
   };
-const passport = require("passport");
-const passportRoutes = require("./routes/passportRoutes");
-const userRoutes = require("./routes/userRoutes");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(
     session({
       secret: "supersecret",
@@ -29,8 +31,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passportRoutes);
-app.use(userRoutes)
-app.use(express.json());
+app.use(userRoutes);
+app.use(arenaRoutes);
 app.use(cors(corsOptions));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum", {
   useUnifiedTopology: true,

@@ -1,7 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import Modal from "react-modal";
+import API from "../../utils/API";
+import UserContext from "../../utils/UserContext";
 
 function CreateIronMan(){
+
+    const { name, portrait } = useContext(UserContext);
     
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -26,6 +30,34 @@ function CreateIronMan(){
         }
     };
 
+    const [arenaState, setArenaState] = useState({
+        competitors:"",
+        brawlers:"",
+    });
+
+    const launchArena = () => {
+        const bigCode = Date.now().toString();
+        const lobbyCode = bigCode.substring(bigCode.length - 6)
+        const arenaData={
+            competitors:arenaState.competitors,
+            brawlers:arenaState.brawlers,
+            lobbyCode:lobbyCode.substring(lobbyCode.length - 6),
+            participants:name
+            }
+        API.saveArena(arenaData,lobbyCode);
+    }
+    
+    const handleInputChange = (event) => {
+        if(event.target.id === "competitors"){
+            setArenaState({...arenaState, competitors:event.target.value})
+            console.log(arenaState)
+            console.log(event)
+        }
+        else{
+            setArenaState({...arenaState, brawlers:event.target.value})
+            console.log(arenaState)
+        }
+    }
     return(
         <div id="createIronMan">
         <h2> Create an Iron Man</h2>
@@ -44,17 +76,19 @@ function CreateIronMan(){
             id="competitors"
             type="number"
             min="2"
+            onChange={handleInputChange}
             required/>
             <h3>How Many Brawlers on a Squad?</h3>
             <input
             id="brawlwers"
             type="number"
             min="2"
+            onChange={handleInputChange}
             required/>
             <br />
             <br />
             <button
-            onClick={modalToggle}
+            onClick={launchArena}
             >Go Smashing</button>
         </Modal>
         <button
