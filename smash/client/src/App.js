@@ -60,7 +60,7 @@ function App() {
           <Route exact path="/dashboard" >
             <Dashboard updateContext={updateContext} />
           </Route>
-          <Route exact path="/arena" component={Arena} />
+          <Route path="/arena" component={Arena} />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>
