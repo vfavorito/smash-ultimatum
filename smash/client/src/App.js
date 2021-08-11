@@ -13,24 +13,39 @@ function App() {
     id: "",
     name: "",
     portrait: "",
+    LobbyCode: "",
+    participants: [],
+    competitors: "",
+    brawlers: ""
   });
+
+
+  const updateContext = (LobbyCode, participants, competitors, brawlers) => {
+    setUserState({
+      ...userState,
+      LobbyCode: LobbyCode,
+      participants: participants,
+      competitors: competitors,
+      brawlers: brawlers
+    })
+  }
 
   useEffect(() => {
     axios
       .get("/User")
       .then((res) => {
         if (res.data.id) {
-        API.getUserByUserId(res.data.id)
-          .then(res => {
-            setUserState({
-              ...userState,
-              id: res.data._id,
-              name: res.data.name,
-              portrait: res.data.portrait,
+          API.getUserByUserId(res.data.id)
+            .then(res => {
+              setUserState({
+                ...userState,
+                id: res.data._id,
+                name: res.data.name,
+                portrait: res.data.portrait,
+              });
             });
-          });
         }
-        else{
+        else {
           return;
         }
       })
@@ -42,8 +57,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route path="/arena" component={Arena} />
+          <Route exact path="/dashboard" >
+            <Dashboard updateContext={updateContext} />
+          </Route>
+          <Route exact path="/arena" component={Arena} />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>

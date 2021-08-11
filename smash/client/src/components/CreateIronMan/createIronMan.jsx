@@ -1,13 +1,16 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom"
 import Modal from "react-modal";
 import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 
-function CreateIronMan() {
+function CreateIronMan(props) {
 
-    const { name, portrait } = useContext(UserContext);
+    const { name, portrait, LobbyCode } = useContext(UserContext);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const history = useHistory();
 
     const modalToggle = () => {
         if (modalIsOpen === true) {
@@ -47,13 +50,18 @@ function CreateIronMan() {
         API.saveArena(arenaData, lobbyCode)
             .then(async (res) => {
                 try {
-                    window.open("http://localhost:3000/arena/" + res.data.lobbyCode,"_self");
+                    await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.competitors, res.data.brawlers)
                 }
                 catch (err) {
                     throw err
                 }
             });
     }
+    useEffect(() => {
+        if (LobbyCode.length === 6) {
+            history.push("/arena")
+        }
+    }, [LobbyCode]);
 
     const handleInputChange = (event) => {
         if (event.target.id === "competitors") {
@@ -65,7 +73,7 @@ function CreateIronMan() {
     }
     return (
         <div id="createIronMan">
-            <h2> Create an Iron Man</h2>
+            < h2 > Create an Iron Man</h2 >
             <Modal
                 isOpen={modalIsOpen}
                 style={customStyles}
@@ -98,7 +106,7 @@ function CreateIronMan() {
             </Modal>
             <button
                 onClick={modalToggle}>Create</button>
-        </div>
+        </div >
     )
 }
 

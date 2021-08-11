@@ -8,7 +8,7 @@ import FavCharStats from "../../components/FavCharStats/favCharStats";
 import { Container, Row, Col } from "react-bootstrap";
 import "./mainDashboard.css";
 
-function MainDashboard() {
+function MainDashboard(props) {
     const { name, portrait } = useContext(UserContext);
 
     const [charState, setCharState] = useState({
@@ -19,8 +19,8 @@ function MainDashboard() {
     const changeTheme = (character, portrait, color) => {
         setCharState({
             ...charState,
-            character:character,
-            portrait:portrait,
+            character: character,
+            portrait: portrait,
         })
         document.getElementById("dashboard").style.backgroundColor = color;
     }
@@ -41,9 +41,9 @@ function MainDashboard() {
                     <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
                 </Col>
                 <Col sm={12} md={4}>
-                    <CreateIronMan />
+                    <CreateIronMan updateContext={props.updateContext} />
                     <JoinIronMan />
-                    <FavCharStats stats={charState}/>
+                    <FavCharStats stats={charState} />
                 </Col>
                 <Col sm={12} md={4}>
                     <UserStats />

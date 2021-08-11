@@ -12,5 +12,9 @@ const API = {
         return axios.post("/api/arenas/" + id,groupData);
     },
     
+    //Returns an Arena's info by searching lobbyCode
+    getArenaByLobbyCode: function (id) {
+        return axios.get("/api/arenas/find/" + id);
+    }
 };
 export default API;
