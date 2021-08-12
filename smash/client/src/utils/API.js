@@ -9,12 +9,16 @@ const API = {
     
     // Saves an Arena to the database
     saveArena: function (groupData, id) {
-        return axios.post("/api/arenas/" + id,groupData);
+        return axios.post("/api/arenas/" + id, groupData);
     },
     
     //Returns an Arena's info by searching lobbyCode
     getArenaByLobbyCode: function (id) {
         return axios.get("/api/arenas/find/" + id);
+    },
+    addArenaParticipant: function (id, participantData){
+        console.log("in api")
+        return axios.put("/api/arenas/addParticipant/" + id, participantData)
     }
 };
 export default API;

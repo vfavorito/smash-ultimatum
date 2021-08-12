@@ -7,4 +7,7 @@ arenaRouter.route("/api/arenas/:id")
 arenaRouter.route("/api/arenas/find/:id")
     .get(arenaController.arenaFind);
 
+arenaRouter.route("/api/arenas/addParticipant/:id")
+    .put(arenaController.addParticipant);
+
 module.exports = arenaRouter
