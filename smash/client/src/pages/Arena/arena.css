@@ -1,0 +1,10 @@
+#header1{
+    display: inline-block;
+}
+#header2{
+    display: inline-block;
+    right:0;
+}
+.smallHeaders{
+    text-align: center;
+}

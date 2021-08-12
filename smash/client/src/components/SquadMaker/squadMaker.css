@@ -1,0 +1,31 @@
+#userPortrait{
+    display:inline-block;
+    margin-right:10px;
+}
+#userName{
+    display:inline-block;
+}
+#character{
+    display:inline-block;
+    text-align: center;
+    margin:5px;
+}
+#characterName{
+    font-size: large;
+    text-align: center;
+}
+#characterPortrait{
+    width:65%
+}
+#roster{
+    border-style: solid;
+    margin:15px
+}
+#userHeader{
+    text-align: center;
+    margin:7px;
+    
+}
+#characterList{
+    text-align: center;
+}

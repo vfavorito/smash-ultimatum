@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
 import API from "../../utils/API";
+import { Container, Row, Col } from "react-bootstrap";
+import "./squadMaker.css";
 
 function SquadMaker() {
     const lobbyCode = window.location.pathname.substr(-6);
@@ -8,27 +10,34 @@ function SquadMaker() {
     useEffect(() => {
         API.getArenaByLobbyCode(lobbyCode)
             .then((res) => {
-                setParticipants(...participants,res.data.participants)
+                setParticipants(...participants, res.data.participants)
             })
     }, []);
 
     if (participants !== undefined) {
         return (
-            <div>
+            <Container>
                 {participants.map((participant) => {
                     return (
-                        <div key={participant.name}>
-                            <h3>{participant.name}'s squad</h3>
-                            <img src={participant.portrait} alt="competitors portrait" />
-                            {participant.squad.map(character =>
-                                <div key={character.name}>
-                                    <p>{character.name}</p>
-                                    <img src={character.portrait} alt="characters portrait" />
-                                </div>)}
-                        </div>
+                        <Row id="roster">
+                            <Col id="userHeader" sm={12} md={12}>
+                                <img id="userPortrait" src={participant.portrait} alt="competitors portrait" />
+                                <h3 id="userName">{participant.name}'s Roster</h3>
+                            </Col>
+                            <Row>
+                                <Col id="characterList" sm={12} md={12} >
+                                    {participant.squad.map(character =>
+                                        <div id="character">
+                                            <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
+                                            <p id="characterName">{character.name}</p>
+                                        </div>
+                                    )}
+                                </Col>
+                            </Row>
+                        </Row>
                     )
                 })}
-            </div>
+            </Container>
         )
     }
     else {
