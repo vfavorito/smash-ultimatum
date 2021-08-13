@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./loginWindow.css";
 function LoginWindow(){
 
     const googleLogin = () => {
@@ -8,8 +8,10 @@ function LoginWindow(){
 
     return(
         <div>
-            <h1>This is The Login Window</h1>
-            <button onClick={googleLogin}>Google+</button>
+            <button id="googleButton" onClick={googleLogin}>
+            <i class="loginText fab ">Login with Google</i>
+             <i id="googleIcon" class="fab fa-google"></i>
+            </button>
         </div>
     )
 }

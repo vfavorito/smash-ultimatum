@@ -1,0 +1,14 @@
+#googleButton{
+    text-align: center;
+    font-size: larger;
+    padding:10px;
+}
+#googleIcon{
+    color: rgb(4, 118, 248);
+    margin-left:15px;
+    font-size: xx-large;
+}
+.loginText{
+    color: rgb(4, 118, 248);
+    font-size: xx-large;
+}

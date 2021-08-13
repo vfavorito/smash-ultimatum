@@ -49,7 +49,7 @@ function MainDashboard(props) {
                     <UserStats />
                 </Col>
             </Row>
-        </Container>
+        </Container>  
     )
 }
 export default MainDashboard;

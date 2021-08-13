@@ -1,12 +1,26 @@
 import React from "react";
-import LoginWindow from "../../components/LoginWindow/loginWindow"
+import LoginWindow from "../../components/LoginWindow/loginWindow";
+import { Container, Row, Col } from "react-bootstrap";
+import "./loginScreen.css";
 
 function LoginScreen(){
 
     return(
-        <div>
-            <LoginWindow />
-        </div>
+        <Container fluid id="container">
+            <div id="master">
+            <Row>
+                <Col sm={3} md={3}></Col>
+                <Col id="loginBox" sm={6} md={6}>
+                    <div id="content">
+                        <h1 class="loginHeader">Smash Ultimatum</h1>
+                        <h3 class="loginHeader">How Tough Are Ya?</h3>
+                        <LoginWindow />
+                    </div>
+                </Col>
+                <Col sm={3} md={3}></Col>
+            </Row>
+            </div>
+        </Container>
     )
 }
 

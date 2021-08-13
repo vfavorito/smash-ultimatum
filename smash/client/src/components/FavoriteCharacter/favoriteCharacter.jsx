@@ -7,7 +7,7 @@ function FavoriteCharacter(props){
     return(
         <div>
         <h2>Favorite Character:</h2>
-        <div className="container" id="container">
+        <div className="container" >
         {CharData.characters.map(character => {
             return(
             <div className="charCard"

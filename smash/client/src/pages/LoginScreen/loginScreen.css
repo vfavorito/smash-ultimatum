@@ -1,0 +1,44 @@
+#loginBox{
+    margin-top:100px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(315deg, rgb(39, 39, 39) 0%, rgba(124,124,124,1) 50%, rgba(255,255,255,1) 100%);
+    border-radius: 100%;
+    width:500px;
+    height:500px;
+}
+.loginHeader{
+    margin-bottom:50px;
+}
+#content{
+    margin-top:120px;
+}
+#container{
+    background-color: black;
+    height:100%;
+}
+@keyframes masterHand {
+    0% { background-position: 0 0; }
+	12.5% { background-position: 50% 50%; }
+    25%{ background-position: 0 100%; }
+    37.5%{ background-position: 50% 50%; }
+    50%{ background-position: 100% 100%; }
+    62.5%{ background-position: 50% 50%; }
+    75%{ background-position: 100% 0; }
+    87.5%{ background-position: 50% 50%; }
+    100%{ background-position: 0 0; }
+  }
+.masterHand{
+        animation: move 10s steps(10) infinite alternate;
+}
+#master{
+    background-image: url("https://ssb.wiki.gallery/images/thumb/2/2b/Master_Hand_SSBU.png/1200px-Master_Hand_SSBU.png");
+    background-repeat: no-repeat;
+    background-size:20%;
+    animation:masterHand;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}

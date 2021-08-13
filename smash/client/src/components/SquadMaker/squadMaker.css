@@ -5,17 +5,30 @@
 #userName{
     display:inline-block;
 }
-#character{
+.character{
     display:inline-block;
     text-align: center;
     margin:5px;
+}
+.hidden{
+    background-image: url("https://www.seekpng.com/png/detail/150-1504471_31kib-732x732-smashball-logo-super-smash-bros-ultimate.png");
+    background-size: cover;
+    width:100px;
+    height:100px;
+    display:inline-block;
+    margin:5px;
+}
+.hiddenContainer{
+    display:inline-block;
+    font-size: large;
 }
 #characterName{
     font-size: large;
     text-align: center;
 }
 #characterPortrait{
-    width:65%
+    width:100px;
+    height: 100px;
 }
 #roster{
     border-style: solid;
@@ -29,3 +42,4 @@
 #characterList{
     text-align: center;
 }
+
