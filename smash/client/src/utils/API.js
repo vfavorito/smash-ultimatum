@@ -11,14 +11,17 @@ const API = {
     saveArena: function (groupData, id) {
         return axios.post("/api/arenas/" + id, groupData);
     },
-    
     //Returns an Arena's info by searching lobbyCode
     getArenaByLobbyCode: function (id) {
         return axios.get("/api/arenas/find/" + id);
     },
+    //adds Participant to arena
     addArenaParticipant: function (id, participantData){
-        console.log("in api")
         return axios.put("/api/arenas/addParticipant/" + id, participantData)
+    },
+    // to update anything about the arena document
+    updateArena: function(id, data){
+        return axios.put("/api/arenas/update/" + id, data)
     }
 };
 export default API;

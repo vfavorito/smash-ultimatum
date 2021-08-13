@@ -39,7 +39,7 @@ function IronMan() {
                     competitors: res.data.competitors,
                     brawlers: res.data.brawlers,
                     lobbyCode: res.data.lobbyCode,
-                    participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad }]
+                    participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad, wins:0 }]
                 }
                 API.addArenaParticipant(LobbyCode, newArenaData)
                     .then((res) => {

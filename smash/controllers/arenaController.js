@@ -16,9 +16,15 @@ module.exports = {
     addParticipant: function (req,res) {
         console.log("in controller")
         db
-            .findOneAndUpdate({ lobbyCode: req.params.id}, req.body)
+            .findOneAndUpdate({ lobbyCode: req.params.id }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    updateArena: function (req,res) {
+        db
+        .findOneAndUpdate({ lobbyCode: req.params.id }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
 
 }

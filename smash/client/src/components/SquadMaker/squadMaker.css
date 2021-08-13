@@ -42,4 +42,8 @@
 #characterList{
     text-align: center;
 }
-
+#victoryButton{
+    padding:15px;
+    margin-top:10px;
+    font-size: large;
+}

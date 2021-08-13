@@ -10,4 +10,7 @@ arenaRouter.route("/api/arenas/find/:id")
 arenaRouter.route("/api/arenas/addParticipant/:id")
     .put(arenaController.addParticipant);
 
+arenaRouter.route("/api/arenas/update/:id")
+    .put(arenaController.updateArena);
+
 module.exports = arenaRouter
