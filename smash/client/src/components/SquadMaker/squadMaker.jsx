@@ -13,25 +13,44 @@ function SquadMaker() {
             .then((res) => {
                 setParticipants(...participants, res.data.participants);
                 setArenaData({
-                brawlers: res.data.brawlers,
-                competitors: res.data.competitors,
-                lobbyCode: res.data.lobbyCode,
-                participants: res.data.participants,
+                    brawlers: res.data.brawlers,
+                    competitors: res.data.competitors,
+                    lobbyCode: res.data.lobbyCode,
+                    participants: res.data.participants,
                 });
             })
     }, []);
-    
+
+    const updateCheck = () => {
+        API.getArenaByLobbyCode(lobbyCode)
+            .then((res) => {
+                if (arenaData.participants !== undefined && arenaData.participants !== res.data.participants ) {
+                    console.log("different")
+                    console.log(res.data.participants, "res.data");
+                    console.log(arenaData.participants, "arenadata");
+                    clearInterval(myInterval);
+                }
+                else {
+                    console.log("no change")
+                    console.log(res.data.participants,"res.data");
+                    console.log(arenaData.participants, "arenadata");
+                    clearInterval(myInterval);
+                }
+            })
+    }
+    const myInterval = setInterval(updateCheck, 5000);
+
     const arenaUpdate = (event) => {
         const participantName = event.target.attributes.name.value;
         const participantData = participants.find(participant => participant.name === participantName);
         const participantSquad = participantData.squad
-        for(let i=0; i< participantData.wins + 2; i++){
-            participantSquad[i].didWin=true;
+        for (let i = 0; i < participantData.wins + 2; i++) {
+            participantSquad[i].didWin = true;
         }
         const index = participants.findIndex(participant => participant.name === participantName);
         participants[index] = participantData;
-        arenaData.participants[index].wins ++;
-        setArenaData({ ...arenaData,participants:participants });
+        arenaData.participants[index].wins++;
+        setArenaData({ ...arenaData, participants: participants });
         API.updateArena(lobbyCode, arenaData);
     }
 

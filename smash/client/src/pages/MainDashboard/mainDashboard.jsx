@@ -5,7 +5,7 @@ import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
 import JoinIronMan from "../../components/JoinIronMan/joinIronMan";
 import FavCharStats from "../../components/FavCharStats/favCharStats";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import "./mainDashboard.css";
 
 function MainDashboard(props) {
@@ -14,13 +14,15 @@ function MainDashboard(props) {
     const [charState, setCharState] = useState({
         character: "",
         portrait: "",
+        quote:"",
     });
 
-    const changeTheme = (character, portrait, color) => {
+    const changeTheme = (character, portrait, color, quote) => {
         setCharState({
             ...charState,
             character: character,
             portrait: portrait,
+            quote: quote
         })
         document.getElementById("dashboard").style.backgroundColor = color;
     }
@@ -36,20 +38,46 @@ function MainDashboard(props) {
                     <img className="userInfo" alt="portrait" src={portrait}></img>
                 </Col>
             </Row>
-            <Row className="content">
-                <Col sm={12} md={4}>
-                    <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
-                </Col>
-                <Col sm={12} md={4}>
-                    <CreateIronMan updateContext={props.updateContext} />
-                    <JoinIronMan />
-                    <FavCharStats stats={charState} />
-                </Col>
-                <Col sm={12} md={4}>
-                    <UserStats />
-                </Col>
+            <Row>
+                <Tab.Container defaultActiveKey="first">
+                    <Row>
+                        <Col sm={12} md={5}>
+                            <Nav variant="pills" className="flex-column">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="first">Create an Iron Man Arena</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="second">Join an Iron Man Arena</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="third">{name} Stats</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="fourth">Character Stats</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                            <FavCharStats stats={charState} />
+                        </Col>
+                        <Col sm={12} md={7}>
+                            <Tab.Content>
+                                <Tab.Pane eventKey="first">
+                                    <CreateIronMan updateContext={props.updateContext} />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="second">
+                                    <JoinIronMan />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="third">
+                                    <UserStats />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="fourth">
+                                    <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
+                                </Tab.Pane>
+                            </Tab.Content>
+                        </Col>
+                    </Row>
+                </Tab.Container>
             </Row>
-        </Container>  
+        </Container>
     )
 }
 export default MainDashboard;

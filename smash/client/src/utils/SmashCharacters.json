@@ -5,504 +5,576 @@
             "name":"Mario",
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/44/Mario_SSBU.png/150px-Mario_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"Okey-Dokey!"
         },
         {
             "id":"2",
             "name":"Luigi",
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/bb/Luigi_SSBU.png/137px-Luigi_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Pow, Pow."
         },
         {
             "id":"3",
             "name":"Peach",
             "portrait":"https://ssb.wiki.gallery/images/thumb/7/74/Peach_SSBU.png/133px-Peach_SSBU.png",
             "color":"pink",
-            "didWin":false
+            "didWin":false,
+            "quote":"Aw, Did I Win?"
         },
         {
             "id":"4",
             "name":"Bowser",
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/49/Bowser_SSBU.png/150px-Bowser_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"BWAHAHA!"
         },
         {
             "id":"5",
             "name":"Dr. Mario",
             "portrait":"https://ssb.wiki.gallery/images/thumb/3/3f/Dr._Mario_SSBU.png/150px-Dr._Mario_SSBU.png",
             "color":"brown",
-            "didWin":false
+            "didWin":false,
+            "quote":"Lets-a-Go!"
         },
         {
             "id":"6",
             "name":"Rosalina & Luma",
             "portrait":"https://ssb.wiki.gallery/images/thumb/1/16/Rosalina_%26_Luma_SSBU.png/150px-Rosalina_%26_Luma_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"All Right!"
         },
         {
             "id":"7",
             "name":"Bowser Jr.",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2b/Bowser_Jr._SSBU.png/150px-Bowser_Jr._SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Papa Told Me All About It."
         },
         {
             "id":"8",
             "name":"Yoshi",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8d/Yoshi_SSBU.png/150px-Yoshi_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Yoshi!"
         },
         {
             "id":"9",
             "name":"Donkey Kong",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c9/Donkey_Kong_SSBU.png/150px-Donkey_Kong_SSBU.png",
             "color":"brown",
-            "didWin":false
+            "didWin":false,
+            "quote":"Banana Slamma!"
         },
         {
             "id":"10",
             "name":"Diddy Kong",
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/a7/Diddy_Kong_SSBU.png/145px-Diddy_Kong_SSBU.png",
             "color":"brown",
-            "didWin":false
+            "didWin":false,
+            "quote":"You Lazy Ape!"
         },
         {
             "id":"11",
             "name":"Link",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/84/Link_SSBU.png/150px-Link_SSBU.png",
             "color":"aqua",
-            "didWin":false
+            "didWin":false,
+            "quote":"HYAAAAAAAA!!!!"
         },
         {
             "id":"12",
             "name":"Zelda",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c8/Zelda_SSBU.png/150px-Zelda_SSBU.png",
             "color":"pink",
-            "didWin":false
+            "didWin":false,
+            "quote":"Stow Your Fear."
         },
         {
             "id":"13",
             "name":"Sheik",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/00/Sheik_SSBU.png/150px-Sheik_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"I've Been Waiting For You."
         },
         {
             "id":"14",
             "name":"Ganondorf",
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/91/Ganondorf_SSBU.png/149px-Ganondorf_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"Behold! The Power Of The Demon King!"
         },
         {
             "id":"15",
             "name":"Young Link",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8a/Young_Link_SSBU.png/150px-Young_Link_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Yah!"
         },
         {
             "id":"16",
             "name":"Toon Link",
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/56/Toon_Link_SSBU.png/142px-Toon_Link_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Big Brother, You're So Strong!"
         },
         {
             "id":"17",
             "name":"Samus",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/03/Samus_SSBU.png/150px-Samus_SSBU.png",
             "color":"orange",
-            "didWin":false
+            "didWin":false,
+            "quote":"Be Still."
         },
         {
             "id":"18",
             "name":"Zero Suit Samus",
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f0/Zero_Suit_Samus_SSBU.png/150px-Zero_Suit_Samus_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Is That All?"
         },
         {
             "id":"19",
             "name":"Kirby",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/07/Kirby_SSBU.png/150px-Kirby_SSBU.png",
             "color":"pink",
-            "didWin":false
+            "didWin":false,
+            "quote":"Hi!"
         },
         {
             "id":"20",
             "name":"Meta Knight",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/00/Meta_Knight_SSBU.png/150px-Meta_Knight_SSBU.png",
             "color":"purple",
-            "didWin":false
+            "didWin":false,
+            "quote":"Know My Power!" 
         },
         {
             "id":"21",
             "name":"King DeDeDe",
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f5/King_Dedede_SSBU.png/150px-King_Dedede_SSBU.png",
             "color":"orange",
-            "didWin":false
+            "didWin":false,
+            "quote":"Surely You Jestin." 
         },
         {
             "id":"22",
             "name":"Fox",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2f/Fox_SSBU.png/150px-Fox_SSBU.png",
             "color":"brown",
-            "didWin":false
+            "didWin":false,
+            "quote":"Mission Complete!"
         },
         {
             "id":"23",
             "name":"Falco",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/80/Falco_SSBU.png/150px-Falco_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Piece Of Cake!"
         },
         {
             "id":"24",
             "name":"Wolf",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8a/Wolf_SSBU.png/150px-Wolf_SSBU.png",
             "color":"purple",
-            "didWin":false
+            "didWin":false,
+            "quote":"The Hunt Is On!"
         },
         {
             "id":"25",
             "name":"Pikachu",
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/93/Pikachu_SSBU.png/150px-Pikachu_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Pikachu!"
         },
         {
             "id":"26",
             "name":"Jigglypuff",
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/6a/Jigglypuff_SSBU.png/150px-Jigglypuff_SSBU.png",
             "color":"pink",
-            "didWin":false
+            "didWin":false,
+            "quote":"Jigglypuff!"
         },
         {
             "id":"27",
             "name":"Mewtwo",
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/de/Mewtwo_SSBU.png/149px-Mewtwo_SSBU.png",
             "color":"purple",
-            "didWin":false
+            "didWin":false,
+            "quote":"One’s Birth Is Irrelevant."
         },
         {
             "id":"28",
             "name":"Pichu",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c1/Pichu_SSBU.png/150px-Pichu_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Pichu!"
         },
         {
             "id":"29",
             "name":"Pokemon Trainer",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/28/Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png/450px-Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"Way To Go, Ivysaur!"
         },
         {
             "id":"30",
             "name":"Lucario",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/08/Lucario_SSBU.png/150px-Lucario_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"The Aura Is With Me!"
         },
         {
             "id":"31",
             "name":"Greninja",
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/da/Greninja_SSBU.png/150px-Greninja_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Greninja..."
         },
         {
             "id":"32",
             "name":"Captain Falcon",
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/da/Captain_Falcon_SSBU.png/150px-Captain_Falcon_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Show Me Your Moves!"
         },
         {
             "id":"33",
             "name":"Ness",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/82/Ness_SSBU.png/150px-Ness_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"PK Fire!"
         },
         {
             "id":"34",
             "name":"Lucas",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/81/Lucas_SSBU.png/150px-Lucas_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"PK Freeze!"
         },
         {
             "id":"35",
             "name":"Ice Climbers",
             "portrait":"https://ssb.wiki.gallery/images/thumb/1/12/Ice_Climbers_SSBU.png/150px-Ice_Climbers_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Popo & Nana."
         },
         {
             "id":"36",
             "name":"Marth",
             "portrait":"https://ssb.wiki.gallery/images/thumb/e/e9/Marth_SSBU.png/150px-Marth_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Predictable!"
         },
         {
             "id":"37",
             "name":"Roy",
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/9d/Roy_SSBU.png/150px-Roy_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"I Won't Lose!"
         },
         {
             "id":"38",
             "name":"Ike",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/86/Ike_SSBU.png/150px-Ike_SSBU.png",
             "color":"orange",
-            "didWin":false
+            "didWin":false,
+            "quote":"Prepare Yourself."
         },
         {
             "id":"39",
             "name":"Robin",
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/82/Robin_SSBU.png/150px-Robin_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"Arcfire!"
         },
         {
             "id":"40",
             "name":"Lucina",
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/dc/Lucina_SSBU.png/150px-Lucina_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"My Turn!"
         },
         {
             "id":"41",
             "name":"Corrin",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c4/Corrin_SSBU.png/150px-Corrin_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"Your Fate Is Clear!"
         },
         {
             "id":"42",
             "name":"Game & Watch",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/cb/Mr._Game_%26_Watch_SSBU.png/150px-Mr._Game_%26_Watch_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"The Chef!"
         },
         {
             "id":"43",
             "name":"Pit",
             "portrait":"https://ssb.wiki.gallery/images/thumb/3/38/Pit_SSBU.png/150px-Pit_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Stay Back!"
         },
         {
             "id":"44",
             "name":"Palutena",
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/6b/Palutena_SSBU.png/142px-Palutena_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Explosive Flame!"
         },
         {
             "id":"45",
             "name":"Dark Pit",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/09/Dark_Pit_SSBU.png/142px-Dark_Pit_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"Electroshock!"
         },
         {
             "id":"46",
             "name":"Wario",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/04/Wario_SSBU.png/150px-Wario_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Yes!"
         },
         {
             "id":"47",
             "name":"Olimar",
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b3/Olimar_SSBU.png/150px-Olimar_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Olimar...!"
         },
         {
             "id":"48",
             "name":"R.O.B.",
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/60/R.O.B._SSBU.png/150px-R.O.B._SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"Robert..."
         },
         {
             "id":"49",
             "name":"Villager",
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/ac/Villager_SSBU.png/150px-Villager_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"*Yawn*"
         },
         {
             "id":"50",
             "name":"Little Mac",
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/53/Little_Mac_SSBU.png/150px-Little_Mac_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Hit 'em, Baby!"
         },
         {
             "id":"51",
             "name":"Wii Fit Trainer",
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/ff/Wii_Fit_Trainer_SSBU.png/150px-Wii_Fit_Trainer_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"You're Wobbling!"
         },
         {
             "id":"52",
             "name":"Shulk",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/0f/Shulk_SSBU.png/150px-Shulk_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"Back Slash!"
         },
         {
             "id":"53",
             "name":"Duck Hunt",
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/d8/Duck_Hunt_SSBU.png/150px-Duck_Hunt_SSBU.png",
             "color":"brown",
-            "didWin":false
+            "didWin":false,
+            "quote":"Hehehehe."
         },
         {
             "id":"54",
             "name":"Snake",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/02/Snake_SSBU.png/123px-Snake_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"Not Even Close."
         },
         {
             "id":"55",
             "name":"Sonic",
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/ba/Sonic_SSBU.png/150px-Sonic_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Sonic Speed!"
         },
         {
             "id":"56",
             "name":"Mega Man",
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/46/Mega_Man_SSBU.png/150px-Mega_Man_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Sizzling Circuits!"
         },
         {
             "id":"57",
             "name":"Pac Man",
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/03/Pac-Man_SSBU.png/150px-Pac-Man_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Pac-Man!"
         },
         {
             "id":"58",
             "name":"Ryu",
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/61/Ryu_SSBU.png/150px-Ryu_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"Hadoken!"
         },
         {
             "id":"59",
             "name":"Cloud",
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b3/Cloud_SSBU.png/150px-Cloud_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"Don't Really Care."
         },
         {
             "id":"60",
             "name":"Bayonetta",
             "portrait":"https://ssb.wiki.gallery/images/thumb/7/7c/Bayonetta_SSBU.png/150px-Bayonetta_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"Dreadful."
         },
         {
             "id":"61",
             "name":"Daisy",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/21/Daisy_SSBU.png/150px-Daisy_SSBU.png",
             "color":"orange",
-            "didWin":false
+            "didWin":false,
+            "quote":"Yeah!"
         },
         {
             "id":"62",
             "name":"Piranha Plant",
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f0/Piranha_Plant_SSBU.png/150px-Piranha_Plant_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"Piranha Plant!" 
         },
         {
             "id":"63",
             "name":"King K. Rool",
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b6/King_K._Rool_SSBU.png/150px-King_K._Rool_SSBU.png",
             "color":"green",
-            "didWin":false
+            "didWin":false,
+            "quote":"You Stupid Monkeys."
         },
         {
             "id":"64",
             "name":"Ridley",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/27/Ridley_SSBU.png/150px-Ridley_SSBU.png",
             "color":"gray",
-            "didWin":false
+            "didWin":false,
+            "quote":"You're About To Die."
         },
         {
             "id":"65",
             "name":"Dark Samus",
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/a6/Dark_Samus_SSBU.png/150px-Dark_Samus_SSBU.png",
             "color":"black",
-            "didWin":false
+            "didWin":false,
+            "quote":"You're mine." 
         },
         {
             "id":"66",
             "name":"Incineroar",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c4/Incineroar_SSBU.png/150px-Incineroar_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"Incineroar!"
         },
         {
             "id":"67",
             "name":"Chrom",
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/57/Chrom_SSBU.png/128px-Chrom_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Now I'm Mad."
         },
         {
             "id":"68",
             "name":"Isabelle",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2b/Isabelle_SSBU.png/150px-Isabelle_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"What Am I Saying?!"
         },
         {
             "id":"69",
             "name":"Inkling",
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2e/Inkling_SSBU.png/150px-Inkling_SSBU.png",
             "color":"Orange",
-            "didWin":false
+            "didWin":false,
+            "quote":"Yeddy!"
         },
         {
             "id":"70",
             "name":"Ken",
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f6/Ken_SSBU.png/150px-Ken_SSBU.png",
             "color":"red",
-            "didWin":false
+            "didWin":false,
+            "quote":"Get Serious!"
         },
         {
             "id":"71",
             "name":"Simon",
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/95/Simon_SSBU.png/150px-Simon_SSBU.png",
             "color":"yellow",
-            "didWin":false
+            "didWin":false,
+            "quote":"Begone!"
         },
         {
             "id":"72",
             "name":"Richter",
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c2/Richter_SSBU.png/150px-Richter_SSBU.png",
             "color":"blue",
-            "didWin":false
+            "didWin":false,
+            "quote":"Grand Cross!"
         }
     ]
 }
