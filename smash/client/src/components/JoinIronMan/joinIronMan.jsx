@@ -38,7 +38,6 @@ function IronMan() {
                 const squadIds = roster(res.data.brawlers);
                 const squad = squadIds.map(squadId => CharData.characters.find(character => character.id === squadId));
                 const newArenaData = {
-                    competitors: res.data.competitors,
                     brawlers: res.data.brawlers,
                     lobbyCode: res.data.lobbyCode,
                     participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad, wins: 0 }]

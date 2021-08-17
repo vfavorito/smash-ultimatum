@@ -37,7 +37,6 @@ function CreateIronMan(props) {
     };
 
     const [arenaState, setArenaState] = useState({
-        competitors: "",
         brawlers: "",
     });
 
@@ -60,7 +59,6 @@ function CreateIronMan(props) {
         const squadIds = roster(arenaState.brawlers);
         const squad = squadIds.map(squadId => CharData.characters.find(character => character.id === squadId));
         const arenaData = {
-            competitors: arenaState.competitors,
             brawlers: arenaState.brawlers,
             lobbyCode: lobbyCode.substring(lobbyCode.length - 6),
             participants: { name: name, portrait: portrait, squad: squad, wins: 0 }
@@ -68,7 +66,7 @@ function CreateIronMan(props) {
         API.saveArena(arenaData, lobbyCode)
             .then(async (res) => {
                 try {
-                    await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.competitors, res.data.brawlers)
+                    await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.brawlers)
                 }
                 catch (err) {
                     throw err
@@ -82,12 +80,8 @@ function CreateIronMan(props) {
     }, [LobbyCode]);
 
     const handleInputChange = (event) => {
-        if (event.target.id === "competitors") {
-            setArenaState({ ...arenaState, competitors: event.target.value })
-        }
-        else {
             setArenaState({ ...arenaState, brawlers: event.target.value })
-        }
+        
     }
     return (
         <Container>
@@ -106,13 +100,6 @@ function CreateIronMan(props) {
                             <br />
                             <h2>Create Your Arena</h2>
                             <br />
-                            <h3>How Many Competitors in your Arena?</h3>
-                            <input
-                                id="competitors"
-                                type="number"
-                                min="2"
-                                onChange={handleInputChange}
-                                required />
                             <h3>How Many Brawlers on a Squad?</h3>
                             <input
                                 id="brawlwers"

@@ -14,7 +14,6 @@ function SquadMaker() {
                 setParticipants(...participants, res.data.participants);
                 setArenaData({
                     brawlers: res.data.brawlers,
-                    competitors: res.data.competitors,
                     lobbyCode: res.data.lobbyCode,
                     participants: res.data.participants,
                 });
@@ -65,7 +64,7 @@ function SquadMaker() {
                                     <button name={participant.name} onClick={arenaUpdate} id="victoryButton" >Victorious</button>
                                 </Col>
                                 <Col id="userHeader" sm={10} md={10}>
-                                    <img id="userPortrait" src={participant.portrait} alt="competitors portrait" />
+                                    <img id="userPortrait" src={participant.portrait} alt="participants portrait" />
                                     <h3 id="userName">{participant.name}'s Roster</h3>
                                 </Col>
                             </Row>

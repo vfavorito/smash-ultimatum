@@ -12,8 +12,9 @@ function Arena() {
         API.getArenaByLobbyCode(lobbyCode)
             .then((res) => {
                 setArenaData({
-                    competitors: res.data.competitors, LobbyCode: res.data.lobbyCode,
-                    brawlers: res.data.brawlers, participants: res.data.participants.length
+                    LobbyCode: res.data.lobbyCode,
+                    brawlers: res.data.brawlers,
+                    participants: res.data.participants.length
                 })
             })
     }, []);

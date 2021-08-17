@@ -6,7 +6,6 @@ const UserContext = React.createContext({
     portrait: "",
     LobbyCode: "",
     participants: [],
-    competitors: "",
     brawlers: ""
 });
 
