@@ -6,13 +6,13 @@ function FavoriteCharacter(props) {
 
     return (
         <div>
-            <h2>Favorite Character:</h2>
-            <div className="container" >
+            <h2>Character Select:</h2>
+            <div className="charSelectContainer" >
                 {CharData.characters.map(character => {
                     return (
                         <div className="charCard"
                             key={character.id}
-                            onClick={() => props.themeChanger(character.name, character.portrait, character.color, character.quote)}>
+                            onClick={() => props.themeChanger(character.name, character.portrait, character.quote)}>
                             <img alt={character.name}
                                 src={character.portrait}
                                 className="charPic" />

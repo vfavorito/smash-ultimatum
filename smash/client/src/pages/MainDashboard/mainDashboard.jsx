@@ -17,48 +17,47 @@ function MainDashboard(props) {
         quote:"",
     });
 
-    const changeTheme = (character, portrait, color, quote) => {
+    const changeTheme = (character, portrait, quote) => {
         setCharState({
             ...charState,
             character: character,
             portrait: portrait,
             quote: quote
-        })
-        document.getElementById("dashboard").style.backgroundColor = color;
-    }
+        });
+    };
 
     return (
         <Container fluid id="dashboard">
-            <Row>
+            <Row id="header">
                 <Col sm={8} md={8}>
                     <h1>Welcome To Smash Ultimatum</h1>
                 </Col>
                 <Col sm={4} md={4}>
                     <h1 className="userInfo">{name}</h1>
-                    <img className="userInfo" alt="portrait" src={portrait}></img>
+                    <img className="userInfo" id="userPortrait"alt="portrait" src={portrait}></img>
                 </Col>
             </Row>
             <Row>
                 <Tab.Container defaultActiveKey="first">
                     <Row>
-                        <Col sm={12} md={5}>
+                        <Col sm={12} md={3}>
                             <Nav variant="pills" className="flex-column">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="first">Create an Iron Man Arena</Nav.Link>
+                                <Nav.Item variant="secondary">
+                                    <Nav.Link id="navPill1" eventKey="first">Create an Iron Man Arena</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="second">Join an Iron Man Arena</Nav.Link>
+                                    <Nav.Link id="navPill2" eventKey="second">Join an Iron Man Arena</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="third">{name} Stats</Nav.Link>
+                                    <Nav.Link id="navPill3" eventKey="third">{name}'s Stats</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="fourth">Character Stats</Nav.Link>
+                                    <Nav.Link id="navPill4" eventKey="fourth">Character Stats</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                             <FavCharStats stats={charState} />
                         </Col>
-                        <Col sm={12} md={7}>
+                        <Col sm={12} md={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
                                     <CreateIronMan updateContext={props.updateContext} />

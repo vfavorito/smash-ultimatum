@@ -1,6 +1,9 @@
-.container{
+.charSelectContainer{
+    text-align: center;
     overflow: auto;
     height:520px;
+    border-style: double;
+    background-color: rgb(82, 82, 82);
 }
 .charPic{
     width:80px;

@@ -19,8 +19,8 @@ function Arena() {
     }, []);
     if (arenaData !== undefined) {
         return (
-            <Container fluid>
-                <Row>
+            <Container id="arena" fluid>
+                <Row id="header">
                     <Col sm={12} md={9}>
                         <h1 id="header1">Welcome to Smash Town</h1>
                     </Col>

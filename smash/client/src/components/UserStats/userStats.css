@@ -1,0 +1,8 @@
+#userStatsContent{
+    text-align: center;
+}
+#userStatsPortrait{
+    width:15%;
+    border-radius:100%;
+    margin:15px;
+}

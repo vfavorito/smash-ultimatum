@@ -230,7 +230,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/28/Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png/450px-Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png",
             "color":"red",
             "didWin":false,
-            "quote":"Way To Go, Ivysaur!"
+            "quote":"Way To Go!"
         },
         {
             "id":"30",
@@ -518,7 +518,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/a6/Dark_Samus_SSBU.png/150px-Dark_Samus_SSBU.png",
             "color":"black",
             "didWin":false,
-            "quote":"You're mine." 
+            "quote":"You're Mine." 
         },
         {
             "id":"66",

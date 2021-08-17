@@ -1,9 +1,36 @@
 .userInfo{
     display: inline-block;
 }
+#userPortrait{
+    margin-top:auto;
+    margin-bottom:auto;
+    width:80px;
+    height:80px;
+    border-radius: 100%;
+}
 #dashboard{
     height: 100vh;
+    background-color: rgb(189, 189, 189);
+}
+#header{
+    background-color: rgb(124, 124, 124);
+    margin-bottom:10px;
 }
 .content{
     text-align: center;
+}
+
+.nav.nav-pills .nav-link.active {
+    background: rgb(45,45,45);
+    background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(124,124,124,1) 50%, rgba(189,189,189,1) 100%);
+    color:white;
+    text-decoration: underline;
+}
+.nav.nav-pills .nav-link{
+    color:black;
+    font-size: x-large;
+    border-style: double;
+}
+.nav.nav-pills .nav-link:hover{
+    text-decoration: underline;
 }
