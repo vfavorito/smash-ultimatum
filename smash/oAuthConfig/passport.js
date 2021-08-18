@@ -30,7 +30,9 @@ passport.use(new GoogleStrategy({
                     User.create({
                         name: profile._json.name,
                         portrait: profile.photos[0].value,
-                        userId: profile.id
+                        userId: profile.id,
+                        ironManStats:{wins:0,losses:0},
+                        tourneyStats:{wins:0,losses:0}
                     })
                         .then(dbModel => console.log(dbModel))
                         .catch(err => console.log(err));

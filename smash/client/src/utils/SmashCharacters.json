@@ -6,6 +6,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/44/Mario_SSBU.png/150px-Mario_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"Okey-Dokey!"
         },
         {
@@ -14,6 +15,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/bb/Luigi_SSBU.png/137px-Luigi_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Pow, Pow."
         },
         {
@@ -22,6 +24,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/7/74/Peach_SSBU.png/133px-Peach_SSBU.png",
             "color":"pink",
             "didWin":false,
+            "hidden":true,
             "quote":"Aw, Did I Win?"
         },
         {
@@ -30,6 +33,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/49/Bowser_SSBU.png/150px-Bowser_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"BWAHAHA!"
         },
         {
@@ -38,6 +42,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/3/3f/Dr._Mario_SSBU.png/150px-Dr._Mario_SSBU.png",
             "color":"brown",
             "didWin":false,
+            "hidden":true,
             "quote":"Lets-a-Go!"
         },
         {
@@ -46,6 +51,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/1/16/Rosalina_%26_Luma_SSBU.png/150px-Rosalina_%26_Luma_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"All Right!"
         },
         {
@@ -54,6 +60,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2b/Bowser_Jr._SSBU.png/150px-Bowser_Jr._SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Papa Told Me All About It."
         },
         {
@@ -62,6 +69,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8d/Yoshi_SSBU.png/150px-Yoshi_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Yoshi!"
         },
         {
@@ -70,6 +78,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c9/Donkey_Kong_SSBU.png/150px-Donkey_Kong_SSBU.png",
             "color":"brown",
             "didWin":false,
+            "hidden":true,
             "quote":"Banana Slamma!"
         },
         {
@@ -78,6 +87,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/a7/Diddy_Kong_SSBU.png/145px-Diddy_Kong_SSBU.png",
             "color":"brown",
             "didWin":false,
+            "hidden":true,
             "quote":"You Lazy Ape!"
         },
         {
@@ -86,6 +96,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/84/Link_SSBU.png/150px-Link_SSBU.png",
             "color":"aqua",
             "didWin":false,
+            "hidden":true,
             "quote":"HYAAAAAAAA!!!!"
         },
         {
@@ -94,6 +105,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c8/Zelda_SSBU.png/150px-Zelda_SSBU.png",
             "color":"pink",
             "didWin":false,
+            "hidden":true,
             "quote":"Stow Your Fear."
         },
         {
@@ -102,6 +114,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/00/Sheik_SSBU.png/150px-Sheik_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"I've Been Waiting For You."
         },
         {
@@ -110,6 +123,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/91/Ganondorf_SSBU.png/149px-Ganondorf_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"Behold! The Power Of The Demon King!"
         },
         {
@@ -118,6 +132,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8a/Young_Link_SSBU.png/150px-Young_Link_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Yah!"
         },
         {
@@ -126,6 +141,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/56/Toon_Link_SSBU.png/142px-Toon_Link_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Big Brother, You're So Strong!"
         },
         {
@@ -134,6 +150,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/03/Samus_SSBU.png/150px-Samus_SSBU.png",
             "color":"orange",
             "didWin":false,
+            "hidden":true,
             "quote":"Be Still."
         },
         {
@@ -142,6 +159,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f0/Zero_Suit_Samus_SSBU.png/150px-Zero_Suit_Samus_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Is That All?"
         },
         {
@@ -150,6 +168,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/07/Kirby_SSBU.png/150px-Kirby_SSBU.png",
             "color":"pink",
             "didWin":false,
+            "hidden":true,
             "quote":"Hi!"
         },
         {
@@ -158,6 +177,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/00/Meta_Knight_SSBU.png/150px-Meta_Knight_SSBU.png",
             "color":"purple",
             "didWin":false,
+            "hidden":true,
             "quote":"Know My Power!" 
         },
         {
@@ -166,6 +186,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f5/King_Dedede_SSBU.png/150px-King_Dedede_SSBU.png",
             "color":"orange",
             "didWin":false,
+            "hidden":true,
             "quote":"Surely You Jestin." 
         },
         {
@@ -174,6 +195,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2f/Fox_SSBU.png/150px-Fox_SSBU.png",
             "color":"brown",
             "didWin":false,
+            "hidden":true,
             "quote":"Mission Complete!"
         },
         {
@@ -182,6 +204,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/80/Falco_SSBU.png/150px-Falco_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Piece Of Cake!"
         },
         {
@@ -190,6 +213,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/8a/Wolf_SSBU.png/150px-Wolf_SSBU.png",
             "color":"purple",
             "didWin":false,
+            "hidden":true,
             "quote":"The Hunt Is On!"
         },
         {
@@ -198,6 +222,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/93/Pikachu_SSBU.png/150px-Pikachu_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Pikachu!"
         },
         {
@@ -206,6 +231,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/6a/Jigglypuff_SSBU.png/150px-Jigglypuff_SSBU.png",
             "color":"pink",
             "didWin":false,
+            "hidden":true,
             "quote":"Jigglypuff!"
         },
         {
@@ -214,6 +240,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/de/Mewtwo_SSBU.png/149px-Mewtwo_SSBU.png",
             "color":"purple",
             "didWin":false,
+            "hidden":true,
             "quote":"One’s Birth Is Irrelevant."
         },
         {
@@ -222,6 +249,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c1/Pichu_SSBU.png/150px-Pichu_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Pichu!"
         },
         {
@@ -230,6 +258,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/28/Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png/450px-Pok%C3%A9mon_Trainer_%28solo%29_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"Way To Go!"
         },
         {
@@ -238,6 +267,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/08/Lucario_SSBU.png/150px-Lucario_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"The Aura Is With Me!"
         },
         {
@@ -246,6 +276,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/da/Greninja_SSBU.png/150px-Greninja_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Greninja..."
         },
         {
@@ -254,6 +285,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/da/Captain_Falcon_SSBU.png/150px-Captain_Falcon_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Show Me Your Moves!"
         },
         {
@@ -262,6 +294,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/82/Ness_SSBU.png/150px-Ness_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"PK Fire!"
         },
         {
@@ -270,6 +303,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/81/Lucas_SSBU.png/150px-Lucas_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"PK Freeze!"
         },
         {
@@ -278,6 +312,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/1/12/Ice_Climbers_SSBU.png/150px-Ice_Climbers_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Popo & Nana."
         },
         {
@@ -286,6 +321,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/e/e9/Marth_SSBU.png/150px-Marth_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Predictable!"
         },
         {
@@ -294,6 +330,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/9d/Roy_SSBU.png/150px-Roy_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"I Won't Lose!"
         },
         {
@@ -302,6 +339,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/86/Ike_SSBU.png/150px-Ike_SSBU.png",
             "color":"orange",
             "didWin":false,
+            "hidden":true,
             "quote":"Prepare Yourself."
         },
         {
@@ -310,6 +348,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/8/82/Robin_SSBU.png/150px-Robin_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"Arcfire!"
         },
         {
@@ -318,6 +357,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/dc/Lucina_SSBU.png/150px-Lucina_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"My Turn!"
         },
         {
@@ -326,6 +366,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c4/Corrin_SSBU.png/150px-Corrin_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"Your Fate Is Clear!"
         },
         {
@@ -334,6 +375,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/cb/Mr._Game_%26_Watch_SSBU.png/150px-Mr._Game_%26_Watch_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"The Chef!"
         },
         {
@@ -342,6 +384,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/3/38/Pit_SSBU.png/150px-Pit_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Stay Back!"
         },
         {
@@ -350,6 +393,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/6b/Palutena_SSBU.png/142px-Palutena_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Explosive Flame!"
         },
         {
@@ -358,6 +402,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/09/Dark_Pit_SSBU.png/142px-Dark_Pit_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"Electroshock!"
         },
         {
@@ -366,6 +411,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/04/Wario_SSBU.png/150px-Wario_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Yes!"
         },
         {
@@ -374,6 +420,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b3/Olimar_SSBU.png/150px-Olimar_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Olimar...!"
         },
         {
@@ -382,6 +429,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/60/R.O.B._SSBU.png/150px-R.O.B._SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"Robert..."
         },
         {
@@ -390,6 +438,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/ac/Villager_SSBU.png/150px-Villager_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"*Yawn*"
         },
         {
@@ -398,6 +447,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/53/Little_Mac_SSBU.png/150px-Little_Mac_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Hit 'em, Baby!"
         },
         {
@@ -406,6 +456,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/ff/Wii_Fit_Trainer_SSBU.png/150px-Wii_Fit_Trainer_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"You're Wobbling!"
         },
         {
@@ -414,6 +465,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/0f/Shulk_SSBU.png/150px-Shulk_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"Back Slash!"
         },
         {
@@ -422,6 +474,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/d/d8/Duck_Hunt_SSBU.png/150px-Duck_Hunt_SSBU.png",
             "color":"brown",
             "didWin":false,
+            "hidden":true,
             "quote":"Hehehehe."
         },
         {
@@ -430,6 +483,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/02/Snake_SSBU.png/123px-Snake_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"Not Even Close."
         },
         {
@@ -438,6 +492,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/ba/Sonic_SSBU.png/150px-Sonic_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Sonic Speed!"
         },
         {
@@ -446,6 +501,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/4/46/Mega_Man_SSBU.png/150px-Mega_Man_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Sizzling Circuits!"
         },
         {
@@ -454,6 +510,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/0/03/Pac-Man_SSBU.png/150px-Pac-Man_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Pac-Man!"
         },
         {
@@ -462,6 +519,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/6/61/Ryu_SSBU.png/150px-Ryu_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"Hadoken!"
         },
         {
@@ -470,6 +528,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b3/Cloud_SSBU.png/150px-Cloud_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"Don't Really Care."
         },
         {
@@ -478,6 +537,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/7/7c/Bayonetta_SSBU.png/150px-Bayonetta_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"Dreadful."
         },
         {
@@ -486,6 +546,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/21/Daisy_SSBU.png/150px-Daisy_SSBU.png",
             "color":"orange",
             "didWin":false,
+            "hidden":true,
             "quote":"Yeah!"
         },
         {
@@ -494,6 +555,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f0/Piranha_Plant_SSBU.png/150px-Piranha_Plant_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"Piranha Plant!" 
         },
         {
@@ -502,6 +564,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/b/b6/King_K._Rool_SSBU.png/150px-King_K._Rool_SSBU.png",
             "color":"green",
             "didWin":false,
+            "hidden":true,
             "quote":"You Stupid Monkeys."
         },
         {
@@ -510,6 +573,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/27/Ridley_SSBU.png/150px-Ridley_SSBU.png",
             "color":"gray",
             "didWin":false,
+            "hidden":true,
             "quote":"You're About To Die."
         },
         {
@@ -518,6 +582,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/a/a6/Dark_Samus_SSBU.png/150px-Dark_Samus_SSBU.png",
             "color":"black",
             "didWin":false,
+            "hidden":true,
             "quote":"You're Mine." 
         },
         {
@@ -526,6 +591,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c4/Incineroar_SSBU.png/150px-Incineroar_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"Incineroar!"
         },
         {
@@ -534,6 +600,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/5/57/Chrom_SSBU.png/128px-Chrom_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Now I'm Mad."
         },
         {
@@ -542,6 +609,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2b/Isabelle_SSBU.png/150px-Isabelle_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"What Am I Saying?!"
         },
         {
@@ -550,6 +618,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/2/2e/Inkling_SSBU.png/150px-Inkling_SSBU.png",
             "color":"Orange",
             "didWin":false,
+            "hidden":true,
             "quote":"Yeddy!"
         },
         {
@@ -558,6 +627,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/f/f6/Ken_SSBU.png/150px-Ken_SSBU.png",
             "color":"red",
             "didWin":false,
+            "hidden":true,
             "quote":"Get Serious!"
         },
         {
@@ -566,6 +636,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/9/95/Simon_SSBU.png/150px-Simon_SSBU.png",
             "color":"yellow",
             "didWin":false,
+            "hidden":true,
             "quote":"Begone!"
         },
         {
@@ -574,6 +645,7 @@
             "portrait":"https://ssb.wiki.gallery/images/thumb/c/c2/Richter_SSBU.png/150px-Richter_SSBU.png",
             "color":"blue",
             "didWin":false,
+            "hidden":true,
             "quote":"Grand Cross!"
         }
     ]

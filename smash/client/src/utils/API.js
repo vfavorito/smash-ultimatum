@@ -2,11 +2,13 @@ import axios from "axios";
 
 const API = {
     
-    // Returns users using their initial google of github id, stored in user.userId
+    // Returns users using their initial google id, stored in user.userId
     getUserByUserId: function (id) {
         return axios.get("/api/users/userid/" + id);
     },
-    
+    getUserByName: function (name) {
+        return axios.get("/api/users/name/" + name);
+    },
     // Saves an Arena to the database
     saveArena: function (groupData, id) {
         return axios.post("/api/arenas/" + id, groupData);
@@ -22,6 +24,10 @@ const API = {
     // to update anything about the arena document
     updateArena: function(id, data){
         return axios.put("/api/arenas/update/" + id, data)
+    },
+    // to update stats of user document
+    updateUserByName: function(name, data){
+        return axios.put("/api/users/update/" + name, data)
     }
 };
 export default API;
