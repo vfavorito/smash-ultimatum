@@ -20,12 +20,11 @@ function App() {
   });
 
 
-  const updateContext = (LobbyCode, participants, competitors, brawlers) => {
+  const updateContext = (LobbyCode, participants, brawlers) => {
     setUserState({
       ...userState,
       LobbyCode: LobbyCode,
       participants: participants,
-      competitors: competitors,
       brawlers: brawlers
     })
   }

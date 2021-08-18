@@ -1,5 +1,6 @@
 import { React, useContext, useState } from "react";
 import UserContext from "../../utils/UserContext";
+import API from "../../utils/API"
 import FavoriteCharacter from "../../components/FavoriteCharacter/favoriteCharacter";
 import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
@@ -18,12 +19,18 @@ function MainDashboard(props) {
     });
 
     const changeTheme = (character, portrait, quote) => {
-        setCharState({
-            ...charState,
-            character: character,
-            portrait: portrait,
-            quote: quote
-        });
+        API.getUserByName(name)
+        .then((res) =>{
+            setCharState({
+                ...charState,
+                character: character,
+                portrait: portrait,
+                quote: quote,
+                stats: res.data.characterStats.find(character => character.name = character)
+            });
+        })
+
+        
     };
 
     return (

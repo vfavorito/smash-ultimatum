@@ -7,20 +7,18 @@ import { Container, Col, Row } from "react-bootstrap";
 function UserStats() {
 
     const { name, portrait } = useContext(UserContext);
-    const [ userStats, setUserStats ] = useState({
-        ironManStats:{},
-        tourneyStats:{}
-    });
+    const [userStats, setUserStats] = useState();
 
     useEffect(() => {
-        API.getUserByName(name)
-        .then((res) => {
-            setUserStats({...userStats, ironManStats:res.data.ironManStats, tourneyStats:res.data.tourneyStats})
-            console.log(res.data.ironManStats)
-        })
-        console.log(userStats)
-    },[])
-    if(userStats.ironManStats !== {}){
+        if (name.length > 1) {
+            API.getUserByName(name)
+                .then((res) => {
+                    setUserStats({ ironManStats: res.data.ironManStats, tourneyStats: res.data.tourneyStats })
+                });
+        }
+    }, [name]);
+
+    if (userStats !== undefined) {
         return (
             <Container id="userStatsContent">
                 <Row>
@@ -39,13 +37,13 @@ function UserStats() {
             </Container>
         )
     }
-    else{
-        return(
+    else {
+        return (
             <>
             </>
         )
     }
-    
+
 }
 
 export default UserStats;

@@ -1,15 +1,15 @@
 import { React } from "react";
-import "./favCharStats.css"
+import "./favCharStats.css";
 
-function favCharStats(props) {
+function FavCharStats(props) {
 
     if (props.stats.character.length > 1) {
         return (
             <div id="charCard">
                 <h2 >{props.stats.quote}</h2>
                 <img id="charImg" src={props.stats.portrait} alt="character portrait" />
-                <h3>Wins:</h3>
-                <h3>Loses:</h3>
+                <h3>Wins: {props.stats.stats.wins}</h3>
+                <h3>Loses: {props.stats.stats.losses}</h3>
             </div>
         )
     }
@@ -19,4 +19,4 @@ function favCharStats(props) {
         )
     }
 }
-export default favCharStats;
+export default FavCharStats;

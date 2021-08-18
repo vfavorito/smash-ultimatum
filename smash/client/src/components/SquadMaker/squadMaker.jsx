@@ -66,7 +66,7 @@ function SquadMaker() {
                             ironManStats:{wins:res.data.ironManStats.wins + 1, losses:res.data.ironManStats.losses},
                             tourneyStats:{...res.data.tourneyStats}
                         }
-                        API.updateUserByName(res.data.name, newData)
+                        API.updateUserByName(res.data.name, newData);
                     }
                     else{
                         const newData = {
@@ -76,7 +76,7 @@ function SquadMaker() {
                             ironManStats:{wins:res.data.ironManStats.wins, losses:res.data.ironManStats.losses + 1},
                             tourneyStats:{...res.data.tourneyStats}
                         }
-                        API.updateUserByName(res.data.name, newData)
+                        API.updateUserByName(res.data.name, newData);
                     }
                 })
             })
