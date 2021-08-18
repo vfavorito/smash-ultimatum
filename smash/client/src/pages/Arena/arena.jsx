@@ -8,6 +8,10 @@ function Arena() {
     const lobbyCode = window.location.pathname.substr(-6);
     const [arenaData, setArenaData] = useState();
 
+    const leaveArena = () => {
+        window.open("http://localhost:3000/dashboard","_self");
+    };
+
     useEffect(() => {
         API.getArenaByLobbyCode(lobbyCode)
             .then((res) => {
@@ -22,11 +26,17 @@ function Arena() {
         return (
             <Container id="arena" fluid>
                 <Row id="header">
-                    <Col sm={12} md={9}>
+                    <Col sm={12} md={5}>
                         <h1 id="header1">Welcome to Smash Town</h1>
                     </Col>
-                    <Col sm={12} md={3}>
+                    <Col sm={12} md={5}>
                         <h1 id="header2">Population: {arenaData.participants}</h1>
+                    </Col>
+                    <Col sm={12} md={2}>
+                        <button
+                        id="leaveButton"
+                        onClick={leaveArena}
+                        >Leave Arena</button>
                     </Col>
                 </Row>
                 <Row>
@@ -37,7 +47,7 @@ function Arena() {
                         <h4>{arenaData.brawlers} Man Iron Man</h4>
                     </Col>
                 </Row>
-                <Row>
+                <Row id="rosterWindow">
                     <SquadMaker />
                 </Row>
             </Container>

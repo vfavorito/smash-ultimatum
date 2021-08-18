@@ -13,7 +13,6 @@ function LoginScreen(){
                 <Col id="loginBox" sm={6} md={6}>
                     <div id="content">
                         <h1 class="loginHeader">Smash Ultimatum</h1>
-                        <h3 class="loginHeader">How Tough Are Ya?</h3>
                         <LoginWindow />
                     </div>
                 </Col>

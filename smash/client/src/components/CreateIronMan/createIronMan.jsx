@@ -32,7 +32,7 @@ function CreateIronMan(props) {
             bottom: "auto",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            background: "linear-gradient(0deg, rgba(45,45,45,1) 0%, rgba(124,124,124,1) 50%, rgba(255,255,255,1) 100%)"
+            background: "rgb(189, 189, 189)"
         }
     };
 
@@ -97,6 +97,7 @@ function CreateIronMan(props) {
                             <button
                                 onClick={modalToggle}>Close
                             </button>
+                            <br />
                             <br />
                             <h2>Create Your Arena</h2>
                             <br />

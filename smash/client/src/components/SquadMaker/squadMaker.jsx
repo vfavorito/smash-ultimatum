@@ -55,7 +55,7 @@ function SquadMaker() {
 
     if (participants !== undefined) {
         return (
-            <Container>
+            <Container fluid>
                 {participants.map((participant) => {
                     return (
                         <Row id="roster">

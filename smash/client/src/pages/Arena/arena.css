@@ -10,4 +10,16 @@
 }
 #arena{
     background-color: rgb(189, 189, 189);
+    height:100vh;
+}
+#leaveButton{
+    font-size: large;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#rosterWindow{
+    height:540px;
+    overflow:auto;
 }
