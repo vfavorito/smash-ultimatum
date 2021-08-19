@@ -21,12 +21,13 @@ function MainDashboard(props) {
     const changeTheme = (character, portrait, quote) => {
         API.getUserByName(name)
         .then((res) =>{
+            const thisCharStats = res.data.characterStats.find(x => x.name === character);
             setCharState({
                 ...charState,
                 character: character,
                 portrait: portrait,
                 quote: quote,
-                stats: res.data.characterStats.find(character => character.name = character)
+                stats: thisCharStats
             });
         })
 

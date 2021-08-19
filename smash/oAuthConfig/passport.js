@@ -1,7 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const CharData = require("../client/src/utils/SmashCharacters.json");
-const CharArray = CharData.characters
+const CharArray = CharData.characters;
 const dotenv = require("dotenv");
 
 const User = require("../models/user");

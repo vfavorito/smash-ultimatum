@@ -4,6 +4,7 @@ import "./favCharStats.css";
 function FavCharStats(props) {
 
     if (props.stats.character.length > 1) {
+        console.log(props.stats,"props.stats")
         return (
             <div id="charCard">
                 <h2 >{props.stats.quote}</h2>
