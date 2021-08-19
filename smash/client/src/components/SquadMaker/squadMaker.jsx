@@ -26,13 +26,14 @@ function SquadMaker() {
         const participantData = participants.find(participant => participant.name === participantName);
         const participantSquad = participantData.squad;
         participants.forEach((participant) => {
+            const winningCharacter = participant.currCharacter;
             API.getUserByName(participant.name)
                 .then(async (res) => {
                     try {
                         if (res.data.name === participantName) {
                             await res.data.characterStats.forEach(character => {
-                                if (character.name === participant.currCharacter) {
-                                    character.wins = character.wins + 1
+                                if (character.name === winningCharacter) {
+                                    character.wins = character.wins + 1;
                                 };
                             });
                             const newUserData = {
@@ -43,7 +44,7 @@ function SquadMaker() {
                         else {
                             await res.data.characterStats.forEach(character => {
                                 if (character.name === participant.currCharacter) {
-                                    character.losses = character.losses + 1
+                                    character.losses = character.losses + 1;
                                 };
                             });
                             const newUserData = {
@@ -57,7 +58,7 @@ function SquadMaker() {
                     }
                 })
         })
-        if (participantData.wins < participantData.squad.length) {
+        if (participantData.wins + 1 !== participantData.squad.length) {
             for (let i = 0; i < participantData.wins + 1; i++) {
                 participantSquad[i].didWin = true;
             }
@@ -65,17 +66,11 @@ function SquadMaker() {
                 for (let i = 0; i < participantData.wins + 2; i++) {
                     participantSquad[i].hidden = false;
                     const index = participants.findIndex(participant => participant.name === participantName);
-                    arenaData.participants[index].currCharacter = participantSquad.find(character => character.didWin === false).name
+                    arenaData.participants[index].currCharacter = participantSquad.find(character => character.didWin === false).name;
                 }
             }
-            const index = participants.findIndex(participant => participant.name === participantName);
-            participants[index] = participantData;
-            arenaData.participants[index].wins++;
-            setArenaData({ ...arenaData, participants: participants });
-            API.updateArena(lobbyCode, arenaData);
         }
         else {
-            console.log("in else")
             participantSquad[participantSquad.length - 1].didWin = true;
             participants.forEach(participant => {
                 API.getUserByName(participant.name)
@@ -83,18 +78,23 @@ function SquadMaker() {
                         if (res.data.name === participantName) {
                             const newData = {
                                 ironManStats: { wins: res.data.ironManStats.wins + 1, losses: res.data.ironManStats.losses }
-                            }
+                            };
                             API.updateUserByName(res.data.name, newData);
                         }
                         else {
                             const newData = {
                                 ironManStats: { wins: res.data.ironManStats.wins, losses: res.data.ironManStats.losses + 1 },
-                            }
+                            };
                             API.updateUserByName(res.data.name, newData);
                         }
                     })
             })
         }
+        const index = participants.findIndex(participant => participant.name === participantName);
+        participants[index] = participantData;
+        arenaData.participants[index].wins++;
+        setArenaData({ ...arenaData, participants: participants });
+        API.updateArena(lobbyCode, arenaData);
     }
 
     if (participants !== undefined) {
