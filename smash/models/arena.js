@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const arenaSchema = new Schema({
   brawlers: { type: String, required: true },
   lobbyCode: { type: String, required: true },
-  participants: []
+  participants: [],
+  admin:{ type: String, required: true }
 });
 
 

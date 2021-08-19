@@ -1,4 +1,5 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useContext } from "react";
+import UserContext from "../../utils/UserContext";
 import Modal from "react-modal";
 import API from "../../utils/API";
 import { Container, Row, Col } from "react-bootstrap";
@@ -6,21 +7,23 @@ import "./squadMaker.css";
 
 function SquadMaker() {
     const lobbyCode = window.location.pathname.substr(-6);
+    const { name } = useContext(UserContext);
     const [participants, setParticipants] = useState([]);
     const [arenaData, setArenaData] = useState({});
     const [winner, setWinner] = useState({
         name: "",
         portrait: ""
     });
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const modalToggle = () => {
-        if (modalIsOpen === true) {
-            setModalIsOpen(false);
-        }
-        else {
+        // if (modalIsOpen === true) {
+        //     setModalIsOpen(false);
+        // }
+        // else {
             setModalIsOpen(true);
-        };
+        // };
     };
 
     const customStyles = {
@@ -40,25 +43,31 @@ function SquadMaker() {
     }
 
     useEffect(() => {
-        API.getArenaByLobbyCode(lobbyCode)
-            .then((res) => {
-                setParticipants(res.data.participants)
-                setArenaData({
-                    brawlers: res.data.brawlers,
-                    lobbyCode: res.data.lobbyCode,
-                    participants: res.data.participants,
-                });
-            })
+        let myInterval = setInterval(() => {
+            API.getArenaByLobbyCode(lobbyCode)
+                .then((res) => {
+                    setParticipants(res.data.participants)
+                    setArenaData({
+                        brawlers: res.data.brawlers,
+                        lobbyCode: res.data.lobbyCode,
+                        participants: res.data.participants,
+                        admin: res.data.admin
+                    });
+                })
+        }, 3000)
+        return () => {
+            clearInterval(myInterval)
+        };
     }, []);
 
     useEffect(() => {
         participants.forEach(participant => {
             if (parseInt(participant.wins) === parseInt(arenaData.brawlers)) {
-                setWinner({...winner, name:participant.name, portrait:participant.portrait})
+                setWinner({ ...winner, name: participant.name, portrait: participant.portrait })
                 modalToggle();
             }
         })
-    },[arenaData])
+    }, [arenaData])
 
     const updater = (event) => {
         const participantName = event.target.attributes.name.value;
@@ -139,70 +148,130 @@ function SquadMaker() {
     }
 
     if (participants !== undefined) {
-        return (
-            <Container fluid>
-                {participants.map((participant) => {
-                    return (
-                        <Row id="roster">
-                            <Row>
-                                <Col sm={1} md={1}>
-                                    <button name={participant.name} onClick={updater} id="victoryButton" >Victorious</button>
-                                </Col>
-                                <Col id="userHeader" sm={10} md={10}>
-                                    <img id="userPortrait" src={participant.portrait} alt="participants portrait" />
-                                    <h3 id="userName">{participant.name}'s Roster</h3>
-                                </Col>
+        if (name === arenaData.admin) {
+            return (
+                <Container fluid>
+                    {participants.map((participant) => {
+                        return (
+                            <Row id="roster">
+                                <Row>
+                                    <Col sm={1} md={1}>
+                                        <button name={participant.name} onClick={updater} id="victoryButton" >Victorious</button>
+                                    </Col>
+                                    <Col id="userHeader" sm={10} md={10}>
+                                        <img id="userPortrait" src={participant.portrait} alt="participants portrait" />
+                                        <h3 id="userName">{participant.name}'s Roster</h3>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col id="characterList" sm={12} md={12} >
+                                        {participant.squad.map(character => {
+                                            if (character.hidden === true && character !== participant.squad[0]) {
+                                                return (
+                                                    <div className="hiddenContainer">
+                                                        <div className="hidden" />
+                                                        <p>???</p>
+                                                    </div>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <div className="character">
+                                                        <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
+                                                        <p id="characterName">{character.name}</p>
+                                                    </div>
+                                                )
+                                            }
+                                        })}
+                                        <Modal
+                                            isOpen={modalIsOpen}
+                                            style={customStyles}
+                                            contentLabel="Modal"
+                                            id="winnerModal">
+                                            <h1>Congratulations!</h1>
+                                            <br />
+                                            <h2> {winner.name} </h2>
+                                            <br />
+                                            <img alt="winner portrait" src={winner.portrait} id="winnerPortrait" />
+                                            <br />
+                                            <br />
+                                            <h3> You Are The Smash King</h3>
+                                            <br />
+                                            <button
+                                                onClick={exitArena}
+                                            >Exit Arena</button>
+                                        </Modal>
+                                    </Col>
+                                </Row>
                             </Row>
-                            <Row>
-                                <Col id="characterList" sm={12} md={12} >
-                                    {participant.squad.map(character => {
-                                        if (character.hidden === true && character !== participant.squad[0]) {
-                                            return (
-                                                <div className="hiddenContainer">
-                                                    <div className="hidden" />
-                                                    <p>???</p>
-                                                </div>
-                                            )
-                                        }
-                                        else {
-                                            return (
-                                                <div className="character">
-                                                    <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
-                                                    <p id="characterName">{character.name}</p>
-                                                </div>
-                                            )
-                                        }
-                                    })}
-                                    <Modal
-                                        isOpen={modalIsOpen}
-                                        style={customStyles}
-                                        contentLabel="Modal"
-                                        id="winnerModal">
-                                        <h1>Congratulations!</h1>
-                                        <br />
-                                        <h2> {winner.name} </h2>
-                                        <br />
-                                        <img alt="winner portrait" src={winner.portrait} id="winnerPortrait" />
-                                        <br />
-                                        <br />
-                                        <h3> You Are The Smash King</h3>
-                                        <br />
-                                        <button
-                                            onClick={exitArena}
-                                        >Exit Arena</button>
-                                    </Modal>
-                                </Col>
+                        )
+                    })}
+                </Container>
+
+            )
+        }
+        else {
+            return (
+                <Container fluid>
+                    {participants.map((participant) => {
+                        return (
+                            <Row id="roster">
+                                <Row>
+                                    <Col id="userHeader" sm={12} md={12}>
+                                        <img id="userPortrait" src={participant.portrait} alt="participants portrait" />
+                                        <h3 id="userName">{participant.name}'s Roster</h3>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col id="characterList" sm={12} md={12} >
+                                        {participant.squad.map(character => {
+                                            if (character.hidden === true && character !== participant.squad[0]) {
+                                                return (
+                                                    <div className="hiddenContainer">
+                                                        <div className="hidden" />
+                                                        <p>???</p>
+                                                    </div>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <div className="character">
+                                                        <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
+                                                        <p id="characterName">{character.name}</p>
+                                                    </div>
+                                                )
+                                            }
+                                        })}
+                                        <Modal
+                                            isOpen={modalIsOpen}
+                                            style={customStyles}
+                                            contentLabel="Modal"
+                                            id="winnerModal">
+                                            <h1>Congratulations!</h1>
+                                            <br />
+                                            <h2> {winner.name} </h2>
+                                            <br />
+                                            <img alt="winner portrait" src={winner.portrait} id="winnerPortrait" />
+                                            <br />
+                                            <br />
+                                            <h3> You Are The Smash King</h3>
+                                            <br />
+                                            <button
+                                                onClick={exitArena}
+                                            >Exit Arena</button>
+                                        </Modal>
+                                    </Col>
+                                </Row>
                             </Row>
-                        </Row>
-                    )
-                })}
-            </Container>
-        )
+                        )
+                    })}
+                </Container>
+
+            )
+        };
     }
     else {
         return <></>
     }
 }
-
-
 export default SquadMaker;

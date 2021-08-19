@@ -61,7 +61,8 @@ function CreateIronMan(props) {
         const arenaData = {
             brawlers: arenaState.brawlers,
             lobbyCode: lobbyCode.substring(lobbyCode.length - 6),
-            participants: { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter:squad[0].name }
+            participants: { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter:squad[0].name },
+            admin:name
         }
         API.saveArena(arenaData, lobbyCode)
             .then(async (res) => {

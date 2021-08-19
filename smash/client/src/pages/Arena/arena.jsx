@@ -26,11 +26,8 @@ function Arena() {
         return (
             <Container id="arena" fluid>
                 <Row id="header">
-                    <Col sm={12} md={5}>
+                    <Col sm={12} md={10}>
                         <h1 id="header1">Welcome to Smash Town</h1>
-                    </Col>
-                    <Col sm={12} md={5}>
-                        <h1 id="header2">Population: {arenaData.participants}</h1>
                     </Col>
                     <Col sm={12} md={2}>
                         <button

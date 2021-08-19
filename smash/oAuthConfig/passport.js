@@ -22,12 +22,9 @@ passport.use(new GoogleStrategy({
     callbackURL: "/auth/google/callback"
 },
     function (accessToken, refreshToken, profile, cb) {
-        console.log("in googlestrategy");
         User.findOne({ userId: profile.id })
             .then(dbModel => {
                 if (!dbModel) {
-
-                    console.log("create user");
                     User.create({
                         name: profile._json.name,
                         portrait: profile.photos[0].value,

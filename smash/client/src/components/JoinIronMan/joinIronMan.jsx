@@ -34,9 +34,10 @@ function IronMan() {
     const joinArena = () => {
         API.getArenaByLobbyCode(LobbyCode)
             .then((res) => {
-                res.data.participants.forEach(participant => {
-                    if (participant.name === name) {
+                
+                    if (res.data.participants.findIndex(participant => participant.name === name) !== -1) {
                         history.push("/arena/" + LobbyCode);
+                        return;
                     }
                     else {
                         const squadIds = roster(res.data.brawlers);
@@ -48,11 +49,10 @@ function IronMan() {
                         }
                         API.addArenaParticipant(LobbyCode, newArenaData)
                             .then((res) => {
-                                console.log(res)
                                 history.push("/arena/" + LobbyCode)
                             })
                     }
-                })
+               
             })
     }
 
