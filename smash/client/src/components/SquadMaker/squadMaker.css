@@ -47,3 +47,20 @@
     margin-top:10px;
     font-size: large;
 }
+#winnerModal {
+    text-align: center;
+    background-image: url("https://i.ytimg.com/vi/6dKtIv_YVJA/maxresdefault.jpg");
+    animation: glow 1.5s infinite alternate;
+}
+#winnerPortrait{
+    border-radius: 100%;
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from {
+      box-shadow: 0 0 10px -10px #000000;
+    }
+    to {
+      box-shadow: 0 0 10px 10px #d60303;
+    }
+  }

@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import Modal from "react-modal";
 import API from "../../utils/API";
 import { Container, Row, Col } from "react-bootstrap";
 import "./squadMaker.css";
@@ -7,7 +8,36 @@ function SquadMaker() {
     const lobbyCode = window.location.pathname.substr(-6);
     const [participants, setParticipants] = useState([]);
     const [arenaData, setArenaData] = useState({});
+    const [winner, setWinner] = useState({
+        name: "",
+        portrait: ""
+    });
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
+    const modalToggle = () => {
+        if (modalIsOpen === true) {
+            setModalIsOpen(false);
+        }
+        else {
+            setModalIsOpen(true);
+        };
+    };
+
+    const customStyles = {
+        content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            background: "rgb(189, 189, 189)",
+        }
+    };
+
+    const exitArena = () => {
+        window.open("http://localhost:3000/dashboard", "_self");
+    }
 
     useEffect(() => {
         API.getArenaByLobbyCode(lobbyCode)
@@ -20,6 +50,15 @@ function SquadMaker() {
                 });
             })
     }, []);
+
+    useEffect(() => {
+        participants.forEach(participant => {
+            if (parseInt(participant.wins) === parseInt(arenaData.brawlers)) {
+                setWinner({...winner, name:participant.name, portrait:participant.portrait})
+                modalToggle();
+            }
+        })
+    },[arenaData])
 
     const updater = (event) => {
         const participantName = event.target.attributes.name.value;
@@ -87,6 +126,8 @@ function SquadMaker() {
                             };
                             API.updateUserByName(res.data.name, newData);
                         }
+                        setWinner({ ...winner, name: participantData.name, portrait: participantData.portrait })
+                        modalToggle();
                     })
             })
         }
@@ -132,6 +173,24 @@ function SquadMaker() {
                                             )
                                         }
                                     })}
+                                    <Modal
+                                        isOpen={modalIsOpen}
+                                        style={customStyles}
+                                        contentLabel="Modal"
+                                        id="winnerModal">
+                                        <h1>Congratulations!</h1>
+                                        <br />
+                                        <h2> {winner.name} </h2>
+                                        <br />
+                                        <img alt="winner portrait" src={winner.portrait} id="winnerPortrait" />
+                                        <br />
+                                        <br />
+                                        <h3> You Are The Smash King</h3>
+                                        <br />
+                                        <button
+                                            onClick={exitArena}
+                                        >Exit Arena</button>
+                                    </Modal>
                                 </Col>
                             </Row>
                         </Row>
