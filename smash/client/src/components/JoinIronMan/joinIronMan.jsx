@@ -34,19 +34,25 @@ function IronMan() {
     const joinArena = () => {
         API.getArenaByLobbyCode(LobbyCode)
             .then((res) => {
-                console.log(res, "first api call res")
-                const squadIds = roster(res.data.brawlers);
-                const squad = squadIds.map(squadId => CharData.characters.find(character => character.id === squadId));
-                const newArenaData = {
-                    brawlers: res.data.brawlers,
-                    lobbyCode: res.data.lobbyCode,
-                    participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad, wins: 0,currCharacter:squad[0].name }]
-                }
-                API.addArenaParticipant(LobbyCode, newArenaData)
-                    .then((res) => {
-                        console.log(res)
-                        history.push("/arena/" + LobbyCode)
-                    })
+                res.data.participants.forEach(participant => {
+                    if (participant.name === name) {
+                        history.push("/arena/" + LobbyCode);
+                    }
+                    else {
+                        const squadIds = roster(res.data.brawlers);
+                        const squad = squadIds.map(squadId => CharData.characters.find(character => character.id === squadId));
+                        const newArenaData = {
+                            brawlers: res.data.brawlers,
+                            lobbyCode: res.data.lobbyCode,
+                            participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter: squad[0].name }]
+                        }
+                        API.addArenaParticipant(LobbyCode, newArenaData)
+                            .then((res) => {
+                                console.log(res)
+                                history.push("/arena/" + LobbyCode)
+                            })
+                    }
+                })
             })
     }
 
@@ -55,7 +61,7 @@ function IronMan() {
             <Row>
                 <Col sm={12} md={12}>
                     <div>
-                    <h1>Join</h1>
+                        <h1>Join</h1>
                         <h4 id="joinText">Join An Iron Man Arena By Entering The Arena's Lobby Code</h4>
                         <input onChange={handleInputChange} placeholder="Lobby Code" />
                         <br />
