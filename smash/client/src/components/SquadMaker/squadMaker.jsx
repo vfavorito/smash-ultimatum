@@ -54,7 +54,7 @@ function SquadMaker() {
                         admin: res.data.admin
                     });
                 })
-        }, 3000)
+        }, 2000)
         return () => {
             clearInterval(myInterval)
         };

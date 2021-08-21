@@ -34,7 +34,7 @@ function IronMan() {
     const joinArena = () => {
         API.getArenaByLobbyCode(LobbyCode)
             .then((res) => {
-                
+                if (res.data !== null) {
                     if (res.data.participants.findIndex(participant => participant.name === name) !== -1) {
                         history.push("/arena/" + LobbyCode);
                         return;
@@ -52,7 +52,10 @@ function IronMan() {
                                 history.push("/arena/" + LobbyCode)
                             })
                     }
-               
+                } else {
+                    alert("Arena Not Found!")
+                }
+
             })
     }
 
