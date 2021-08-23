@@ -18,12 +18,7 @@ function SquadMaker() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const modalToggle = () => {
-        // if (modalIsOpen === true) {
-        //     setModalIsOpen(false);
-        // }
-        // else {
             setModalIsOpen(true);
-        // };
     };
 
     const customStyles = {
@@ -54,7 +49,7 @@ function SquadMaker() {
                         admin: res.data.admin
                     });
                 })
-        }, 2000)
+        }, 4000)
         return () => {
             clearInterval(myInterval)
         };

@@ -9,6 +9,9 @@ const API = {
     getUserByName: function (name) {
         return axios.get("/api/users/name/" + name);
     },
+    getAllUsers: function () {
+        return axios.get("/api/users");
+    },
     // Saves an Arena to the database
     saveArena: function (groupData, id) {
         return axios.post("/api/arenas/" + id, groupData);

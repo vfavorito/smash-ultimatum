@@ -19,6 +19,12 @@ module.exports = {
             .findOneAndUpdate({ name: req.params.name }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    userFindAll: function (req,res) {
+        User
+        .find({})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
     
 };

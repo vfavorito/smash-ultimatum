@@ -28,10 +28,6 @@ function UserStats() {
                         <h3>Iron Man Stats</h3>
                         <h4>Wins: {userStats.ironManStats.wins}</h4>
                         <h4>Losses: {userStats.ironManStats.losses}</h4>
-                        <br />
-                        <h3>Tournament Stats</h3>
-                        <h4>Wins: {userStats.tourneyStats.wins}</h4>
-                        <h4>Losses: {userStats.tourneyStats.losses}</h4>
                     </Col>
                 </Row>
             </Container>

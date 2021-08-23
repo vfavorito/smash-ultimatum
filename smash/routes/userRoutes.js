@@ -9,4 +9,8 @@ userRouter.route("/api/users/name/:name")
 
 userRouter.route("/api/users/update/:name")
     .put(usersController.userUpdateByName)
+
+userRouter.route("/api/users")
+    .get(usersController.userFindAll)
+    
 module.exports = userRouter;

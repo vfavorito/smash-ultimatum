@@ -6,6 +6,7 @@ import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
 import JoinIronMan from "../../components/JoinIronMan/joinIronMan";
 import FavCharStats from "../../components/FavCharStats/favCharStats";
+import LeaderBoard from "../../components/LeaderBoard/leaderBoard"
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import "./mainDashboard.css";
 
@@ -62,6 +63,9 @@ function MainDashboard(props) {
                                 <Nav.Item>
                                     <Nav.Link id="navPill4" eventKey="fourth">Character Stats</Nav.Link>
                                 </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link id="navPill5" eventKey="fifth">Leaderboard</Nav.Link>
+                                </Nav.Item>
                             </Nav>
                             <FavCharStats stats={charState} />
                         </Col>
@@ -78,6 +82,9 @@ function MainDashboard(props) {
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fourth">
                                     <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="fifth">
+                                    <LeaderBoard />
                                 </Tab.Pane>
                             </Tab.Content>
                         </Col>
