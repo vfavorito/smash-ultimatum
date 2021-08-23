@@ -10,6 +10,7 @@
 }
 #dashboard{
     background-color: rgb(189, 189, 189);
+    min-height:96vh;
 }
 #header{
     background-color: rgb(124, 124, 124);

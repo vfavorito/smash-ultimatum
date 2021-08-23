@@ -52,17 +52,17 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={userState} id="container">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" >
-            <Dashboard updateContext={updateContext} />
-          </Route>
-          <Route path="/arena" component={Arena} />
-        </Switch>
-      </BrowserRouter>
-    </UserContext.Provider>
+        <UserContext.Provider value={userState} id="container">
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route exact path="/dashboard" >
+                <Dashboard updateContext={updateContext} />
+              </Route>
+              <Route path="/arena" component={Arena} />
+            </Switch>
+          </BrowserRouter>
+        </UserContext.Provider>
   );
 }
 

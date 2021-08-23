@@ -6,7 +6,8 @@ import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
 import JoinIronMan from "../../components/JoinIronMan/joinIronMan";
 import FavCharStats from "../../components/FavCharStats/favCharStats";
-import LeaderBoard from "../../components/LeaderBoard/leaderBoard"
+import LeaderBoard from "../../components/LeaderBoard/leaderBoard";
+import Footer from "../../components/Footer/footer";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import "./mainDashboard.css";
 
@@ -31,11 +32,10 @@ function MainDashboard(props) {
                 stats: thisCharStats
             });
         })
-
-        
     };
 
     return (
+        <div>
         <Container fluid id="dashboard">
             <Row id="header">
                 <Col sm={8} md={8}>
@@ -92,6 +92,8 @@ function MainDashboard(props) {
                 </Tab.Container>
             </Row>
         </Container>
+        <Footer />
+        </div>
     )
 }
 export default MainDashboard;

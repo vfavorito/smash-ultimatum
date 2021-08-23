@@ -5,7 +5,7 @@ import "./favoriteCharacter.css";
 function FavoriteCharacter(props) {
 
     return (
-        <div>
+        <div id="charSelectWrapper">
             <h2>Character Select:</h2>
             <div className="charSelectContainer" >
                 {CharData.characters.map(character => {
