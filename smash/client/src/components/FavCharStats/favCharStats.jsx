@@ -2,7 +2,7 @@ import { React } from "react";
 import "./favCharStats.css";
 
 function FavCharStats(props) {
-
+    // component that will display if a character was selected from Favorite character component 
     if (props.stats.character.length > 1) {
         console.log(props.stats,"props.stats")
         return (

@@ -5,10 +5,11 @@ import "./userStats.css";
 import { Container, Col, Row } from "react-bootstrap";
 
 function UserStats() {
-
+    // the logged in users data
     const { name, portrait } = useContext(UserContext);
+    // setting up stats state that will be updated with api call
     const [userStats, setUserStats] = useState();
-
+    // once name is updated get the users data from database and set it to userStats
     useEffect(() => {
         if (name.length > 1) {
             API.getUserByName(name)
@@ -17,7 +18,7 @@ function UserStats() {
                 });
         }
     }, [name]);
-
+    // if userStats has been updated
     if (userStats !== undefined) {
         return (
             <Container id="userStatsContent">

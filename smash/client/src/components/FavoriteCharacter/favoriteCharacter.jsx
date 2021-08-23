@@ -4,6 +4,7 @@ import "./favoriteCharacter.css";
 
 function FavoriteCharacter(props) {
 
+    // displays a full roster of all the characters in the charData json file and on click updates the current character selected state
     return (
         <div id="charSelectWrapper">
             <h2>Character Select:</h2>

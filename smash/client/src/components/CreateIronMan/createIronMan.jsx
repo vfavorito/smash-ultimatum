@@ -42,7 +42,7 @@ function CreateIronMan(props) {
     // function that is run when create arena button is clicked
     const launchArena = () => {
         const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6)
-        // function that generates an array of random numbers 1-72 with no repeats
+        // function that generates an array of random numbers 1-72 with no repeats the length of arena team size
         const roster = (brawlers) => {
             const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
                 "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
@@ -92,7 +92,7 @@ function CreateIronMan(props) {
             setArenaState({ ...arenaState, brawlers: event.target.value })
         
     }
-    
+
     return (
         <Container>
             <Row>

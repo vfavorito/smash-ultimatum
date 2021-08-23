@@ -7,15 +7,17 @@ import CharData from "../../utils/SmashCharacters.json";
 import "./joinIronMan.css";
 
 function IronMan() {
-
+    // state used to set arena code that will be used to reroute to the correct arena 
     const [LobbyCode, setLobbyCode] = useState("");
+    // user data which is used to add user to the arena
     const { name, portrait } = useContext(UserContext);
+    // for rerouting capabilities
     const history = useHistory();
-
+    // for live updating of arena code on input change
     const handleInputChange = (event) => {
         setLobbyCode(event.target.value);
     }
-
+    // function that generates an array of random numbers 1-72 with no repeats the length of arena team size
     const roster = (brawlers) => {
         const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
             "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",
@@ -30,15 +32,19 @@ function IronMan() {
         }
         return array;
     }
-
+    // function that is ran when join button is clicked
     const joinArena = () => {
+        // finds the arena with the lobbycode
         API.getArenaByLobbyCode(LobbyCode)
             .then((res) => {
+                // if the arena was found
                 if (res.data !== null) {
+                    // if this user is already a participant in that arena reroute to the arena page
                     if (res.data.participants.findIndex(participant => participant.name === name) !== -1) {
                         history.push("/arena/" + LobbyCode);
                         return;
                     }
+                    // if user is not a participant generate them a team and update the arena with this participant
                     else {
                         const squadIds = roster(res.data.brawlers);
                         const squad = squadIds.map(squadId => CharData.characters.find(character => character.id === squadId));
@@ -47,12 +53,15 @@ function IronMan() {
                             lobbyCode: res.data.lobbyCode,
                             participants: [...res.data.participants, { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter: squad[0].name }]
                         }
+                        // updating the arena in database then rerouting to arena page
                         API.addArenaParticipant(LobbyCode, newArenaData)
                             .then((res) => {
                                 history.push("/arena/" + LobbyCode)
                             })
                     }
-                } else {
+                }
+                // if arena was not found alert arena not found
+                else {
                     alert("Arena Not Found!")
                 }
 
