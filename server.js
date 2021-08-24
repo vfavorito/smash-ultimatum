@@ -15,7 +15,8 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "http://localhost/8000/auth/google/callback",
-    "https://smash-ultimatum.herokuapp.com/"
+    "https://smash-ultimatum.herokuapp.com/",
+    "https://smash-ultimatum.herokuapp.com/auth/google/callback"
   ],
   methods: ["GET", "PUT", "POST"],
   optionsSuccessStatus: 200,
@@ -30,7 +31,9 @@ app.use(
   })
 );
 
-app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.use(passport.initialize());
 app.use(passport.session());
