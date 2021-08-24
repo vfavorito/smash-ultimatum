@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum
   useCreateIndex: true,
 });
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../smash/client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 server.listen(PORT, () => {
   console.log("app running on:", PORT);
