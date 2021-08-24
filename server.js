@@ -15,6 +15,7 @@ const corsOptions = {
     origin: [
       "http://localhost:3000",
       "http://localhost/8000/auth/google/callback",
+      "https://smash-ultimatum.herokuapp.com/"
     ],
     methods: ["GET", "PUT", "POST"],
     optionsSuccessStatus: 200,
