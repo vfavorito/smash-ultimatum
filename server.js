@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const http = require("http");
-const path =require("path");
+const path = require("path");
 const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
@@ -12,23 +12,26 @@ const userRoutes = require("./routes/userRoutes");
 const arenaRoutes = require("./routes/arenaRoutes");
 const cors = require("cors");
 const corsOptions = {
-    origin: [
-      "http://localhost:3000",
-      "http://localhost/8000/auth/google/callback",
-      "https://smash-ultimatum.herokuapp.com/"
-    ],
-    methods: ["GET", "PUT", "POST"],
-    optionsSuccessStatus: 200,
-  };
+  origin: [
+    "http://localhost:3000",
+    "http://localhost/8000/auth/google/callback",
+    "https://smash-ultimatum.herokuapp.com/"
+  ],
+  methods: ["GET", "PUT", "POST"],
+  optionsSuccessStatus: 200,
+};
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
-    session({
-      secret: "supersecret",
-      resave: true,
-      saveUninitialized: true,
-    })
-  );
+  session({
+    secret: "supersecret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(express.static("client/build"));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passportRoutes);
@@ -41,8 +44,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum
   useCreateIndex: true,
 });
 app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "../smash/client/public/index.html"));
+  res.sendFile(path.join(__dirname, "../smash/client/public/index.html"));
 });
 server.listen(PORT, () => {
-    console.log("app running on:", PORT);
+  console.log("app running on:", PORT);
 });
