@@ -12,14 +12,15 @@ import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import "./mainDashboard.css";
 
 function MainDashboard(props) {
+    // currently logged in user data
     const { name, portrait } = useContext(UserContext);
-
+    // state to set for individual character on click
     const [charState, setCharState] = useState({
         character: "",
         portrait: "",
         quote:"",
     });
-
+    // on click function that grabs the characters stats for the logged in user for that character 
     const changeTheme = (character, portrait, quote) => {
         API.getUserByName(name)
         .then((res) =>{

@@ -5,13 +5,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./arena.css";
 
 function Arena() {
+    // getting lobbycode from url
     const lobbyCode = window.location.pathname.substr(-6);
+    // setting up state to hold arena data
     const [arenaData, setArenaData] = useState();
-
+    // reroute to dashboard if leave arena button is clicked
     const leaveArena = () => {
         window.open("http://localhost:3000/dashboard","_self");
     };
-
+    // getting arena data by lobby code and storing it in arenaData state
     useEffect(() => {
         API.getArenaByLobbyCode(lobbyCode)
             .then((res) => {

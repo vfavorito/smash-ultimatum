@@ -8,7 +8,7 @@ import API from "./utils/API";
 import UserContext from "./utils/UserContext";
 
 function App() {
-
+  // logged in user data that is linked to usercontext
   const [userState, setUserState] = useState({
     id: "",
     name: "",
@@ -19,7 +19,7 @@ function App() {
     brawlers: ""
   });
 
-
+  //function to update user context passed down as prop
   const updateContext = (LobbyCode, participants, brawlers) => {
     setUserState({
       ...userState,
@@ -28,7 +28,7 @@ function App() {
       brawlers: brawlers
     })
   }
-
+  // sets userState on login
   useEffect(() => {
     axios
       .get("/User")
