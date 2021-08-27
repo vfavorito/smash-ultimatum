@@ -435,23 +435,23 @@ function SquadMaker() {
                         )
                     })}
                 </Container>
-            )
+            );
+        }
+        else {
+            return (
+                <Container>
+                    <Row>
+                        <Col sm={12} md={12} id="waitingScreen">
+                            <h1>Waiting For Someone To Join Your Arena</h1>
+                            <br />
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                        </Col>
+                    </Row>
+                </Container>
+            );
         };
-    }
-    else {
-        return (
-            <Container>
-                <Row>
-                    <Col sm={12} md={12} id="waitingScreen">
-                        <h1>Waiting For Someone To Join Your Arena</h1>
-                        <br />
-                        <Spinner animation="border" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </Spinner>
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
+    };
 }
 export default SquadMaker;
