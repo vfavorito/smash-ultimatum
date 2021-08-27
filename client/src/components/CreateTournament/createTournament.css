@@ -23,3 +23,12 @@
 #currCharacter{
     width:100px;
 }
+#sizeButton{
+    font-size: x-large;
+    width:50px;
+    margin-left:15px;
+    margin-right:15px;
+}
+#sizeButton:focus{
+    background-color: rgb(55, 189, 55);
+}

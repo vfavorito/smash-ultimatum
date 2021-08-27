@@ -1,18 +1,14 @@
 import React from "react";
 import Bracket from "../../components/Bracket/bracket";
 import { Container, Row, Col } from "react-bootstrap";
-import API from "../../utils/API";
-import { useEffect } from "react";
+import "./tournament.css"
 
 
 function Tournament() {
 
     const lobbyCode = window.location.pathname.substr(-6);
-
-    
-
     return (
-        <Container>
+        <Container fluid id="tournamentPage">
             <Row>
                 <Col sm={12} md={12}>
                     <h1>Tournament Page</h1>

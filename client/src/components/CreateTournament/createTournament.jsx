@@ -37,7 +37,7 @@ function CreateTournament(props) {
     };
     // state to hold number of participants in tournament
     const [tourneyState, setTourneyState] = useState({
-        participants: "",
+        participants: "4",
         userCharacter: ""
     });
     const [currCharacter, setCurrCharacter] = useState({
@@ -49,7 +49,8 @@ function CreateTournament(props) {
     });
 
     const handleInputChange = (event) => {
-        setTourneyState({ ...tourneyState, participants: event.target.value })
+        console.log(event)
+        setTourneyState({ ...tourneyState, participants: event.target.innerText})
     };
     const launchTourney = () => {
         if(parseInt(tourneyState.participants) > 1){
@@ -101,17 +102,14 @@ function CreateTournament(props) {
                             </button>
                             <br />
                             <br />
-                            <h2>Create Your Tournament</h2>
-                            <br />
                             <h3>How Many Participating In Your Tournament</h3>
-                            <input
-                                id="participants"
-                                type="number"
-                                min="2"
-                                placeholder="# of Participants"
-                                onChange={handleInputChange}
-                                required />
-                            <br />
+                            <button
+                            id="sizeButton"
+                            onClick={handleInputChange}>4</button>
+                            <button
+                            id="sizeButton"
+                            onClick={handleInputChange}>8</button>
+                            <h3>Current Tournament Size: {tourneyState.participants}</h3>
                             <h3>Chose Your Character:</h3>
                             {(currCharacter.isSelected === true)
                                     ?
