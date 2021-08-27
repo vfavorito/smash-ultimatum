@@ -31,6 +31,15 @@ const API = {
     // to update stats of user document
     updateUserByName: function(name, data){
         return axios.put("/api/users/update/" + name, data)
+    },
+    createTournament: function(lobbyCode, tourneyData){
+        return axios.post("/api/tournaments/" + lobbyCode, tourneyData)
+    },
+    getTournamentByLobbyCode: function(lobbyCode){
+        return axios.get("/api/tournaments/" + lobbyCode)
+    },
+    addTournamentParticipant: function(lobbyCode,participantData){
+        return axios.put("/api/tournaments/addParticipant/" + lobbyCode, participantData)
     }
 };
 export default API;

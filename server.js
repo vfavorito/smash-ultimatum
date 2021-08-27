@@ -10,6 +10,7 @@ const passport = require("passport");
 const passportRoutes = require("./routes/passportRoutes");
 const userRoutes = require("./routes/userRoutes");
 const arenaRoutes = require("./routes/arenaRoutes");
+const tournamentRoutes = require("./routes/tournamentRoutes");
 const cors = require("cors");
 const corsOptions = {
   origin: [
@@ -38,6 +39,7 @@ app.use(passport.session());
 app.use(passportRoutes);
 app.use(userRoutes);
 app.use(arenaRoutes);
+app.use(tournamentRoutes);
 app.use(cors(corsOptions));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum", {
   useUnifiedTopology: true,

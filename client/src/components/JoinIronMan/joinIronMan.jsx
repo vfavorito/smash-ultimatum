@@ -73,7 +73,7 @@ function IronMan() {
             <Row>
                 <Col sm={12} md={12}>
                     <div>
-                        <h1>Join</h1>
+                        <h1>Join Iron Man</h1>
                         <h4 id="joinText">Join An Iron Man Arena By Entering The Arena's Lobby Code</h4>
                         <input onChange={handleInputChange} placeholder="Lobby Code" />
                         <br />

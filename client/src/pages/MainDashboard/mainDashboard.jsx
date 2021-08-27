@@ -5,6 +5,8 @@ import FavoriteCharacter from "../../components/FavoriteCharacter/favoriteCharac
 import UserStats from "../../components/UserStats/userStats";
 import CreateIronMan from "../../components/CreateIronMan/createIronMan";
 import JoinIronMan from "../../components/JoinIronMan/joinIronMan";
+import CreateTournament from "../../components/CreateTournament/createTournament";
+import JoinTournament from "../../components/JoinTournament/joinTournament";
 import FavCharStats from "../../components/FavCharStats/favCharStats";
 import LeaderBoard from "../../components/LeaderBoard/leaderBoard";
 import Footer from "../../components/Footer/footer";
@@ -59,13 +61,19 @@ function MainDashboard(props) {
                                     <Nav.Link id="navPill2" eventKey="second">Join an Iron Man Arena</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="navPill3" eventKey="third">{name}'s Stats</Nav.Link>
+                                    <Nav.Link id="navPill3" eventKey="third">Create a Tournament</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="navPill4" eventKey="fourth">Character Stats</Nav.Link>
+                                    <Nav.Link id="navPill4" eventKey="fourth">Join a Tournament</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="navPill5" eventKey="fifth">Leaderboard</Nav.Link>
+                                    <Nav.Link id="navPill5" eventKey="fifth">{name}'s Stats</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link id="navPill6" eventKey="sixth">Character Stats</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link id="navPill7" eventKey="seventh">Leaderboard</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                             <FavCharStats stats={charState} />
@@ -79,12 +87,18 @@ function MainDashboard(props) {
                                     <JoinIronMan />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="third">
-                                    <UserStats />
+                                    <CreateTournament updateContext={props.updateContext}/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fourth">
-                                    <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
+                                    <JoinTournament />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fifth">
+                                    <UserStats />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="sixth">
+                                    <FavoriteCharacter className="favChar" themeChanger={changeTheme} />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="seventh">
                                     <LeaderBoard />
                                 </Tab.Pane>
                             </Tab.Content>
