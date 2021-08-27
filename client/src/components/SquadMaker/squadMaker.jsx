@@ -1,17 +1,20 @@
-import { React, useEffect, useState, useContext } from "react";
+import { React, useEffect, useState, useContext, useRef } from "react";
 import UserContext from "../../utils/UserContext";
 import Modal from "react-modal";
 import API from "../../utils/API";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import "./squadMaker.css";
 
-// the big daddy function that does all the arena page magic
+
+// function that does all the arena page magic
 
 function SquadMaker() {
     // getting this arenas lobbyCode
     const lobbyCode = window.location.pathname.substr(-6);
     // getting currently logged in users name
     const { name } = useContext(UserContext);
+    const permanentName = useRef();
+    permanentName.current = name
     // array of all participants currently in this arena
     const [participants, setParticipants] = useState([]);
     // entire arena object from database
@@ -21,11 +24,14 @@ function SquadMaker() {
         name: "",
         portrait: ""
     });
-    // state of whether modal should be displayed or not
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [winnerModalIsOpen, setWinnerModalIsOpen] = useState(false);
+    const [voteModalIsOpen, setVoteModalIsOpen] = useState(false);
+    const [roundWinner, setRoundWinner] = useState("");
+    const vote = useRef();
+    const didVote = useRef();
     // changing the modal display status
-    const modalToggle = () => {
-        setModalIsOpen(true);
+    const winnerModalToggle = () => {
+        setWinnerModalIsOpen(true);
     };
     // custom css tweaks of modal
     const customStyles = {
@@ -42,129 +48,229 @@ function SquadMaker() {
     // reroute to dashboard after clicking exit arena button
     const exitArena = () => {
         window.open("https://smash-ultimatum.herokuapp.com/dashboard", "_self");
-    }
+    };
     // starts grabbing the arena database object every 4 seconds and updates the arena data on the front end
+
     useEffect(() => {
-        let myInterval = setInterval(() => {
-            API.getArenaByLobbyCode(lobbyCode)
-                .then((res) => {
-                    setParticipants(res.data.participants)
-                    setArenaData({
-                        brawlers: res.data.brawlers,
-                        lobbyCode: res.data.lobbyCode,
-                        participants: res.data.participants,
-                        admin: res.data.admin
+        let myInterval = setInterval(async () => {
+            try {
+                await API.getArenaByLobbyCode(lobbyCode)
+                    .then(async (res) => {
+                        try {
+                            setParticipants(res.data.participants)
+                            setArenaData({
+                                brawlers: res.data.brawlers,
+                                lobbyCode: res.data.lobbyCode,
+                                participants: res.data.participants,
+                                admin: res.data.admin,
+                                vote: res.data.vote
+                            });
+                            if (permanentName.current !== res.data.admin) {
+                                voteTally();
+                            };
+                            if (res.data.vote.yays + res.data.vote.nays === 0 && res.data.vote.voteOpen === false) {
+                                setVoteModalIsOpen(false);
+                            };
+                            await statusCheck();
+                        }
+                        catch (err) {
+                            throw err;
+                        };
                     });
-                })
-        }, 4000)
+            }
+            catch (err) {
+                throw err;
+            };
+        }, 2000);
         return () => {
-            clearInterval(myInterval)
+            clearInterval(myInterval);
         };
     }, []);
-    // every time the arena data is updated on the front end check to see if there is a winner yet if there is display modal
-    useEffect(() => {
-        participants.forEach(participant => {
-            if (parseInt(participant.wins) === parseInt(arenaData.brawlers)) {
-                setWinner({ ...winner, name: participant.name, portrait: participant.portrait })
-                modalToggle();
-            }
-        })
-    }, [arenaData])
-    // magic function that is triggerd everytime the victorious button is clicked
-    const updater = (event) => {
-        // whoever was victorious assign that participants data to variables
-        const participantName = event.target.attributes.name.value;
-        const participantData = participants.find(participant => participant.name === participantName);
-        const participantSquad = participantData.squad;
-        // for every participant in the arena get their user object from the database
-        participants.forEach((participant) => {
-            const winningCharacter = participant.currCharacter;
-            //grabbing the users object from database
-            API.getUserByName(participant.name)
+
+    const statusCheck = async () => {
+        try {
+            await API.getArenaByLobbyCode(lobbyCode)
                 .then(async (res) => {
                     try {
-                        // if this participant was the victorious one find the charcter they were victorious with
-                        // in their user document from database and add one to their wins value
-                        if (res.data.name === participantName) {
-                            await res.data.characterStats.forEach(character => {
-                                if (character.name === winningCharacter) {
-                                    character.wins = character.wins + 1;
-                                };
-                            });
-                            const newUserData = {
-                                characterStats: res.data.characterStats,
-                            }
-                            // update the winners user document in database with the +1 win on that character
-                            API.updateUserByName(res.data.name, newUserData);
+                        if (res.data.vote.voteOpen === true) {
+                            setRoundWinner(res.data.roundWinner);
+                            setVoteModalIsOpen(true);
                         }
-                        // for the non victorious participants
                         else {
-                            // find the character they lost with in the users database document and add one loss to their loss value
-                            await res.data.characterStats.forEach(character => {
-                                if (character.name === participant.currCharacter) {
-                                    character.losses = character.losses + 1;
+                            setVoteModalIsOpen(false);
+                            didVote.current = false;
+                        };
+                        res.data.participants.forEach(participant => {
+                            if (parseInt(participant.wins) === parseInt(res.data.brawlers)) {
+                                setWinner({ ...winner, name: participant.name, portrait: participant.portrait });
+                                winnerModalToggle();
+                            };
+                        });
+                        if (res.data.participants.length > 1) {
+                            if (res.data.vote.yays + res.data.vote.nays === res.data.participants.length - 1) {
+                                if (res.data.vote.nays === 0 && permanentName.current === res.data.admin) {
+                                    updater(res.data.roundWinner);
+                                    API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } })
+                                    setVoteModalIsOpen(false)
+                                }
+                                else {
+                                    API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } });
                                 };
-                            });
-                            const newUserData = {
-                                characterStats: res.data.characterStats,
-                            }
-                            //updating the losers user document in database with +1 loss on their character
-                            API.updateUserByName(res.data.name, newUserData);
-                        }
+                            };
+                        };
                     }
                     catch (err) {
                         throw err;
-                    }
+                    };
+                });
+        }
+        catch (err) {
+            throw err;
+        };
+    };
+
+    const voteTally = async () => {
+        try {
+            if (vote.current === "Yes") {
+                await API.getArenaByLobbyCode(lobbyCode)
+                    .then(async (res) => {
+                        try {
+                            await API.updateArena(lobbyCode,
+                                { vote: { voteOpen: true, yays: res.data.vote.yays + 1, nays: res.data.vote.nays } })
+                                .then((res) => {
+
+                                    vote.current = "";
+                                });
+                        }
+                        catch (err) {
+                            throw err;
+                        };
+
+                    });
+            }
+            else if (vote.current === "No") {
+                await API.getArenaByLobbyCode(lobbyCode)
+                    .then(async (res) => {
+                        try {
+                            await API.updateArena(lobbyCode,
+                                { vote: { voteOpen: true, yays: res.data.vote.yays, nays: res.data.vote.nays + 1 } });
+
+                            vote.current = ""
+                        }
+                        catch (err) {
+                            throw err;
+                        };
+
+                    });
+            };
+        }
+        catch (err) {
+            throw err;
+        };
+
+    };
+
+    const openVote = (event) => {
+        API.updateArena(lobbyCode, { roundWinner: event.target.attributes.name.value, vote: { voteOpen: true, yays: 0, nays: 0 } });
+    }
+
+    // function that is triggerd everytime a unanimous yes vote is given
+    const updater = (roundWinner) => {
+        API.getArenaByLobbyCode(lobbyCode)
+            .then((res) => {
+                const arenaParticipants = res.data.participants
+                const winningParticipantName = roundWinner;
+                const winningParticipantData = arenaParticipants.find(participant => participant.name === winningParticipantName);
+                const winningParticipantSquad = winningParticipantData.squad;
+
+                const index = arenaParticipants.findIndex(participant => participant.name === winningParticipantName);
+                arenaParticipants[index].wins++;
+
+                // for every participant in the arena get their user object from the database
+                arenaParticipants.forEach((participant) => {
+                    const winningCharacter = participant.currCharacter;
+                    //grabbing the users object from database
+                    API.getUserByName(participant.name)
+                        .then(async (res) => {
+                            try {
+                                // if this participant was the victorious one find the charcter they were victorious with
+                                // in their user document from database and add one to their wins value
+                                if (res.data.name === winningParticipantName) {
+                                    await res.data.characterStats.forEach(character => {
+                                        if (character.name === winningCharacter) {
+                                            character.wins = character.wins + 1;
+                                        };
+                                    });
+                                    const newUserData = {
+                                        characterStats: res.data.characterStats,
+                                    }
+                                    // update the winners user document in database with the +1 win on that character
+                                    API.updateUserByName(res.data.name, newUserData);
+                                }
+                                // for the non victorious participants
+                                else {
+                                    // find the character they lost with in the users database document and add one loss to their loss value
+                                    await res.data.characterStats.forEach(character => {
+                                        if (character.name === participant.currCharacter) {
+                                            character.losses = character.losses + 1;
+                                        };
+                                    });
+                                    const newUserData = {
+                                        characterStats: res.data.characterStats,
+                                    }
+                                    //updating the losers user document in database with +1 loss on their character
+                                    API.updateUserByName(res.data.name, newUserData);
+                                }
+                            }
+                            catch (err) {
+                                throw err;
+                            }
+                        })
                 })
-        })
-        // setting participants wins and what characters should be hidden if their is not a winner yet
-        if (participantData.wins + 1 !== participantData.squad.length) {
-            for (let i = 0; i < participantData.wins + 1; i++) {
-                participantSquad[i].didWin = true;
-            }
-            if (participantSquad[participantData.squad.length - 1].hidden === true) {
-                for (let i = 0; i < participantData.wins + 2; i++) {
-                    participantSquad[i].hidden = false;
-                    const index = participants.findIndex(participant => participant.name === participantName);
-                    arenaData.participants[index].currCharacter = participantSquad.find(character => character.didWin === false).name;
+                // setting participants wins and what characters should be hidden if their is not a winner yet
+                if (winningParticipantData.wins !== winningParticipantData.squad.length) {
+                    for (let i = 0; i < winningParticipantData.wins; i++) {
+                        winningParticipantSquad[i].didWin = true;
+                    }
+                    if (winningParticipantSquad[winningParticipantData.squad.length - 1].hidden === true) {
+                        for (let i = 0; i < winningParticipantData.wins + 1; i++) {
+                            winningParticipantSquad[i].hidden = false;
+                            winningParticipantData.currCharacter = winningParticipantSquad.find(character => character.didWin === false).name;
+                            arenaParticipants[index] = winningParticipantData;
+                            API.updateArena(lobbyCode, { participants: arenaParticipants });
+                        }
+                    }
                 }
-            }
-        }
-        // if their is a winner update the users documents in the database
-        else {
-            participantSquad[participantSquad.length - 1].didWin = true;
-            participants.forEach(participant => {
-                // getting the user document from database
-                API.getUserByName(participant.name)
-                    .then((res) => {
-                        // if this user was the winner add a win to their user document and update in database
-                        if (res.data.name === participantName) {
-                            const newData = {
-                                ironManStats: { wins: res.data.ironManStats.wins + 1, losses: res.data.ironManStats.losses }
-                            };
-                            API.updateUserByName(res.data.name, newData);
-                        }
-                        // if the user was not the winner add a loss to their user document and update in database
-                        else {
-                            const newData = {
-                                ironManStats: { wins: res.data.ironManStats.wins, losses: res.data.ironManStats.losses + 1 },
-                            };
-                            API.updateUserByName(res.data.name, newData);
-                        }
-                        // setting the winner state and telling the winner modal to display
-                        setWinner({ ...winner, name: participantData.name, portrait: participantData.portrait })
-                        modalToggle();
+                // if their is a winner update the users documents in the database
+                else {
+                    winningParticipantSquad[winningParticipantSquad.length - 1].didWin = true;
+                    API.updateArena(lobbyCode, { participants: arenaParticipants });
+                    arenaParticipants.forEach(participant => {
+                        // getting the user document from database
+                        API.getUserByName(participant.name)
+                            .then((res) => {
+                                // if this user was the winner add a win to their user document and update in database
+                                if (res.data.name === winningParticipantName) {
+                                    const newData = {
+                                        ironManStats: { wins: res.data.ironManStats.wins + 1, losses: res.data.ironManStats.losses }
+                                    };
+                                    API.updateUserByName(res.data.name, newData);
+                                }
+                                // if the user was not the winner add a loss to their user document and update in database
+                                else {
+                                    const newData = {
+                                        ironManStats: { wins: res.data.ironManStats.wins, losses: res.data.ironManStats.losses + 1 },
+                                    };
+                                    API.updateUserByName(res.data.name, newData);
+                                }
+                                // setting the winner state and telling the winner modal to display
+                                setWinner({ ...winner, name: winningParticipantData.name, portrait: winningParticipantData.portrait })
+                                winnerModalToggle();
+                            })
                     })
+                }
             })
-        }
-        // finding the victorios participant in participants array
-        const index = participants.findIndex(participant => participant.name === participantName);
-        participants[index] = participantData;
-        // adding a win to the winning participant
-        arenaData.participants[index].wins++;
-        // updating the arena with the winning participants data 
-        setArenaData({ ...arenaData, participants: participants });
-        API.updateArena(lobbyCode, arenaData);
+
     }
     // if participants have been set
     if (participants !== undefined) {
@@ -177,7 +283,7 @@ function SquadMaker() {
                             <Row id="roster">
                                 <Row>
                                     <Col sm={1} md={1}>
-                                        <button name={participant.name} onClick={updater} id="victoryButton" >Victorious</button>
+                                        <button name={participant.name} onClick={openVote} id="victoryButton" >Victorious</button>
                                     </Col>
                                     <Col id="userHeader" sm={10} md={10}>
                                         <img id="userPortrait" src={participant.portrait} alt="participants portrait" />
@@ -205,7 +311,7 @@ function SquadMaker() {
                                             }
                                         })}
                                         <Modal
-                                            isOpen={modalIsOpen}
+                                            isOpen={winnerModalIsOpen}
                                             style={customStyles}
                                             contentLabel="Modal"
                                             id="winnerModal">
@@ -265,7 +371,7 @@ function SquadMaker() {
                                             }
                                         })}
                                         <Modal
-                                            isOpen={modalIsOpen}
+                                            isOpen={winnerModalIsOpen}
                                             style={customStyles}
                                             contentLabel="Modal"
                                             id="winnerModal">
@@ -282,13 +388,53 @@ function SquadMaker() {
                                                 onClick={exitArena}
                                             >Exit Arena</button>
                                         </Modal>
+                                        <Modal
+                                            isOpen={voteModalIsOpen}
+                                            style={customStyles}
+                                            contentLabel="Modal"
+                                            id="voteModal">
+                                            {didVote.current
+                                                ?
+                                                <div>
+                                                    <h1>Thank You For Your Vote!</h1>
+                                                    <h3>One Moment Please</h3>
+                                                    <Spinner animation="border" role="status">
+                                                        <span className="visually-hidden">Loading...</span>
+                                                    </Spinner>
+                                                    <h3>All Votes Are Being Tallied</h3>
+                                                </div>
+                                                :
+                                                <div>
+                                                    <h1>Did {roundWinner}</h1>
+                                                    <h1>Win That Round?</h1>
+                                                    <br />
+                                                    <button
+                                                        id="yesButton"
+                                                        onClick={() => {
+                                                            vote.current = "Yes"
+                                                            didVote.current = true
+                                                        }}
+                                                    > Yes
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                    </button>
+                                                    <button
+                                                        id="noButton"
+                                                        onClick={() => {
+                                                            vote.current = "No"
+                                                            didVote.current = true
+                                                        }}
+                                                    >No
+                                                        <i class="fas fa-thumbs-down"></i>
+                                                    </button>
+                                                </div>
+                                            }
+                                        </Modal>
                                     </Col>
                                 </Row>
                             </Row>
                         )
                     })}
                 </Container>
-
             )
         };
     }
