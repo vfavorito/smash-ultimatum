@@ -275,7 +275,7 @@ function SquadMaker() {
     // if participants have been set
     if (participants !== undefined) {
         // if the user has admin status meaning they created the arena display the rosters with the victorious buttons
-        if (name === arenaData.admin) {
+        if (name === arenaData.admin && participants.length > 1) {
             return (
                 <Container fluid>
                     {participants.map((participant) => {
@@ -338,7 +338,7 @@ function SquadMaker() {
             )
         }
         // if the user has joined the arena but does not have admin status display the rosters without the victorious buttons
-        else {
+        else if (participants.length > 1) {
             return (
                 <Container fluid>
                     {participants.map((participant) => {
@@ -428,7 +428,6 @@ function SquadMaker() {
                                                     </button>
                                                 </div>
                                             }
-
                                         </Modal>
                                     </Col>
                                 </Row>
@@ -436,12 +435,24 @@ function SquadMaker() {
                         )
                     })}
                 </Container>
-
             )
-        };
-    }
-    else {
-        return <></>
+
+        }
+        else {
+            return (
+                <Container>
+                    <Row>
+                        <Col sm={12} md={12} id="waitingScreen">
+                            <h1>Waiting For Someone To Join Your Arena</h1>
+                            <br />
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                        </Col>
+                    </Row>
+                </Container>
+            )
+        }
     }
 }
 export default SquadMaker;
