@@ -10,7 +10,7 @@ passportRouter.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
     function (req, res) {
         // Successful authentication, redirect home.
-        res.redirect("https://smash-ultimatum.herokuapp.com/dashboard");
+        res.redirect("http://localhost:3000/dashboard");
         // dashboard instead of /User
     });
 

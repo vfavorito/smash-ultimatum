@@ -31,7 +31,7 @@ app.use(
   })
 );
 
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Smash-Ultimatum
   useCreateIndex: true,
 });
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/client/public/index.html"));
 });
 server.listen(PORT, () => {
   console.log("app running on:", PORT);

@@ -66,7 +66,8 @@ function CreateIronMan(props) {
             brawlers: arenaState.brawlers,
             lobbyCode: lobbyCode.substring(lobbyCode.length - 6),
             participants: { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter:squad[0].name },
-            admin:name
+            admin:name,
+            vote:{voteOpen:false, yays:0, nays:0}
         }
         // saving the arena to the database
         API.saveArena(arenaData, lobbyCode)

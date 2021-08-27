@@ -5,7 +5,9 @@ const arenaSchema = new Schema({
   brawlers: { type: String, required: true },
   lobbyCode: { type: String, required: true },
   participants: [],
-  admin:{ type: String, required: true }
+  admin:{ type: String, required: true },
+  vote:{},
+  roundWinner:""
 });
 
 
