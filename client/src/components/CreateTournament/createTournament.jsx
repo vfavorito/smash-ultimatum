@@ -52,6 +52,7 @@ function CreateTournament(props) {
         setTourneyState({ ...tourneyState, participants: event.target.value })
     };
     const launchTourney = () => {
+        if(parseInt(tourneyState.participants) > 1){
         const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6);
         const character = CharData.characters.find(character => character.id === tourneyState.userCharacter);
         const tourneyData = {
@@ -64,18 +65,17 @@ function CreateTournament(props) {
             .then(async (res) => {
                 try {
                     await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.brawlers)
+                    history.push("/tournament/" + lobbyCode)
                 }
                 catch (err) {
                     throw err
                 }
             });
-    };
-
-    useEffect(() => {
-        if (LobbyCode.length === 6) {
-            history.push("/tournament/" + LobbyCode);
         }
-    }, [LobbyCode]);
+        else{
+            alert("Invalid Amount Of Tournament Participants")
+        }
+    };
 
     useEffect(() => {
         if (tourneyState.userCharacter.length >= 1) {
@@ -108,9 +108,9 @@ function CreateTournament(props) {
                                 id="participants"
                                 type="number"
                                 min="2"
+                                placeholder="# of Participants"
                                 onChange={handleInputChange}
                                 required />
-                            <br />
                             <br />
                             <h3>Chose Your Character:</h3>
                             {(currCharacter.isSelected === true)

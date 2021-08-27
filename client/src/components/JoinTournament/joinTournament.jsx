@@ -125,7 +125,7 @@ function JoinTournament() {
                             {(currCharacter.isSelected === true)
                                 ?
                                 <div id="characterDisplay">
-                                    <img alt="selected character" src={currCharacter.character.portrait} id="currCharacterPortrait" />
+                                    <img alt="selected character" src={currCharacter.character.portrait} id="currCharacter" />
                                     <h5>{currCharacter.character.quote}</h5>
                                 </div>
                                 :

@@ -74,19 +74,13 @@ function CreateIronMan(props) {
             .then(async (res) => {
                 try {
                     await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.brawlers)
+                    history.push("/arena/" + lobbyCode)
                 }
                 catch (err) {
                     throw err
                 }
             });
     }
-
-    // once the lobby Code is changed reroute to the arena page
-    useEffect(() => {
-        if (LobbyCode.length === 6) {
-            history.push("/arena/" + LobbyCode);
-        }
-    }, [LobbyCode]);
 
     // function run everytime there is an input change on the input bar in modal
     const handleInputChange = (event) => {
