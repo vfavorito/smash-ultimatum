@@ -113,7 +113,17 @@ function SquadMaker() {
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } })
                                     setVoteModalIsOpen(false)
                                 }
-                                else {
+                                else if(res.data.vote.nays > 0){
+                                    API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } });
+                                };
+                            }
+                            else if(res.data.vote.yays + res.data.vote.nays > res.data.participants.length - 1){
+                                if(res.data.vote.nays === 0 && permanentName.current === res.data.admin){
+                                    updater(res.data.roundWinner);
+                                    API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } })
+                                    setVoteModalIsOpen(false)
+                                }
+                                else if(res.data.vote.nays > 0){
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } });
                                 };
                             };
