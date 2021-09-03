@@ -113,17 +113,17 @@ function SquadMaker() {
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } })
                                     setVoteModalIsOpen(false)
                                 }
-                                else if(res.data.vote.nays > 0){
+                                else if (res.data.vote.nays > 0) {
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } });
                                 };
                             }
-                            else if(res.data.vote.yays + res.data.vote.nays > res.data.participants.length - 1){
-                                if(res.data.vote.nays === 0 && permanentName.current === res.data.admin){
+                            else if (res.data.vote.yays + res.data.vote.nays > res.data.participants.length - 1) {
+                                if (res.data.vote.nays === 0 && permanentName.current === res.data.admin) {
                                     updater(res.data.roundWinner);
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } })
                                     setVoteModalIsOpen(false)
                                 }
-                                else if(res.data.vote.nays > 0){
+                                else if (res.data.vote.nays > 0) {
                                     API.updateArena(lobbyCode, { vote: { voteOpen: false, yays: 0, nays: 0 } });
                                 };
                             };
@@ -311,6 +311,17 @@ function SquadMaker() {
                                                     </div>
                                                 )
                                             }
+                                            else if (character.didWin === true) {
+                                                return (
+                                                    <div className="character">
+                                                        <div className="overlays">
+                                                            <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
+                                                            <img className="didWin" src="https://cdn.pixabay.com/photo/2021/08/04/02/34/green-checkmark-6520886__340.png" alt="check mark" />
+                                                        </div>
+                                                        <p id="characterName">{character.name}</p>
+                                                    </div>
+                                                )
+                                            }
                                             else {
                                                 return (
                                                     <div className="character">
@@ -361,13 +372,24 @@ function SquadMaker() {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col id="characterList" sm={12} md={12} >
+                                <Col id="characterList" sm={12} md={12} >
                                         {participant.squad.map(character => {
                                             if (character.hidden === true && character !== participant.squad[0]) {
                                                 return (
                                                     <div className="hiddenContainer">
                                                         <div className="hidden" />
                                                         <p>???</p>
+                                                    </div>
+                                                )
+                                            }
+                                            else if (character.didWin === true) {
+                                                return (
+                                                    <div className="character">
+                                                        <div className="overlays">
+                                                            <img id="characterPortrait" src={character.portrait} alt="characters portrait" />
+                                                            <img className="didWin" src="https://cdn.pixabay.com/photo/2021/08/04/02/34/green-checkmark-6520886__340.png" alt="check mark" />
+                                                        </div>
+                                                        <p id="characterName">{character.name}</p>
                                                     </div>
                                                 )
                                             }
@@ -445,7 +467,8 @@ function SquadMaker() {
                         )
                     })}
                 </Container>
-            );
+            )
+
         }
         else {
             return (
@@ -460,8 +483,8 @@ function SquadMaker() {
                         </Col>
                     </Row>
                 </Container>
-            );
-        };
-    };
+            )
+        }
+    }
 }
 export default SquadMaker;
