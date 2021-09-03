@@ -3,7 +3,7 @@ import "./loginWindow.css";
 function LoginWindow() {
     // hitting the google login route
     const googleLogin = () => {
-        window.open("http://localhost:8000/auth/google", "_self");
+        window.open("https://smash-ultimatum.herokuapp.com/auth/google", "_self");
     }
     return (
         <div>

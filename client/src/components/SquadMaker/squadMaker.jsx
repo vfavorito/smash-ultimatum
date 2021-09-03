@@ -47,7 +47,7 @@ function SquadMaker() {
     };
     // reroute to dashboard after clicking exit arena button
     const exitArena = () => {
-        window.open("http://localhost:3000/dashboard", "_self");
+        window.open("https://smash-ultimatum.herokuapp.com/dashboard", "_self");
     };
     // starts grabbing the arena database object every 4 seconds and updates the arena data on the front end
 

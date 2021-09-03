@@ -12,7 +12,7 @@ function Tournament() {
     });
 
     const exitTournament = () => {
-        window.open("http://localhost:3000/dashboard", "_self");
+        window.open("https://smash-ultimatum.herokuapp.com/dashboard", "_self");
     }
 
     useEffect(()=>{
