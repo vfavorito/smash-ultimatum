@@ -1,18 +1,58 @@
 .competitor{
     border-style: solid;
-    width:100%;
+    width:250px;
     margin:10px;
+    display:inline-block;
+}
+.competitor:hover{
+    transform:scale(1.2,1.2);
+    box-shadow: 0 5px 20px rgb(0, 0, 0);
+    cursor: pointer;
 }
 #compChar{
     display:inline-block;
-    width:50px;
-    height:50px;
+    width:60px;
+    height:60px;
+    margin-right:7px;
 }
 #compName{
     display:inline-block;
-    font-weight: 800;
-    color:white;
+    font-weight: 1000;
+    color:rgb(255, 255, 255);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #bracket{
     overflow:auto;
+    height:400px;
+    text-align: center;
+}
+#preLaunch{
+    text-align: center;
+}
+#launchButton{
+    padding:10px;
+    font-size: x-large;
+}
+#bracketContainer{
+    text-align: center;
+    height:450px;
+}
+.matches{
+    margin-bottom:30px;
+    border-style: solid;   
+}
+#vs{
+    display: inline-block;
+    vertical-align: middle;
+}
+#matchContent{
+    display: inline-block;
+}
+#waitingScreen{
+    text-align: center;
+    margin-top: 100px;
+}
+#characterWinner{
+    height:100px;
+    width:100px;
 }

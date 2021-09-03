@@ -52,21 +52,24 @@ function JoinTournament() {
         API.getTournamentByLobbyCode(lobbyCode)
             .then((res) => {
                 if (res.data !== null) {
-                    // if this user is already a participant in that arena reroute to the arena page
+                    // if this user is already a participant in that tournament reroute to the tournament page
                     if (res.data.participants.findIndex(participant => participant.name === name) !== -1) {
                         history.push("/tournament/" + lobbyCode);
                         return;
                     }
-                    // if user is not a participant generate them a team and update the arena with this participant
-                    else {
+                    else if(currCharacter.isSelected === true){
                         const character = CharData.characters.find(character => character.id === tourneyState.userCharacter);
                         const userData = {
                             name: name,
                             portrait: portrait,
                             character: character
                         };
+                        const index = res.data.participants.findIndex(el => el.name === "Bye");
+                        if (index !== -1) {
+                            res.data.participants[index] = userData;
+                        };
                         const newTournamentData = {
-                            participants: [...res.data.participants, userData],
+                            participants: [...res.data.participants],
                             lobbyCode: res.data.lobbyCode,
                             tournamentSize: res.data.tournamentSize,
                             admin: res.data.admin
@@ -76,6 +79,9 @@ function JoinTournament() {
                             .then((res) => {
                                 history.push("/tournament/" + lobbyCode)
                             })
+                    }
+                    else{
+                        alert("Please Select A Character Before Joining Tournament")
                     }
                 }
                 // if tournament was not found alert tournament not found
@@ -149,7 +155,7 @@ function JoinTournament() {
                             </div>
                             <button
                                 onClick={launchTourney}
-                            >Go Smashing</button>
+                            >Join Tournament</button>
                         </Modal>
                         <button id="joinButton" onClick={modalToggle}>Join a Tournament</button>
                     </div>

@@ -41,6 +41,9 @@ function CreateIronMan(props) {
     });
     // function that is run when create arena button is clicked
     const launchArena = () => {
+        if(arenaState.brawlers !== ""){
+
+        
         const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6);
         // function that generates an array of random numbers 1-72 with no repeats the length of arena team size
         const roster = (brawlers) => {
@@ -80,6 +83,10 @@ function CreateIronMan(props) {
                     throw err
                 }
             });
+        }
+        else{
+            alert("Please Set How Many Brawlers On A Squad")
+        }
     }
 
     // function run everytime there is an input change on the input bar in modal
@@ -116,7 +123,7 @@ function CreateIronMan(props) {
                             <br />
                             <button
                                 onClick={launchArena}
-                            >Go Smashing</button>
+                            >Create Arena</button>
                         </Modal>
                         <button className="createButton" onClick={modalToggle}>Smash Time</button>
                     </div >

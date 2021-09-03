@@ -13,10 +13,16 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    addTournamentParticipant: function (req,res) {
+    addTournamentParticipant: function (req, res) {
         db
             .findOneAndUpdate({ lobbyCode: req.params.id }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    updateTournament: function (req, res) {
+        db
+            .findOneAndUpdate({ lobbyCode: req.params.id }, req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    }
 }

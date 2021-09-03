@@ -5,7 +5,8 @@ import Modal from "react-modal";
 import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 import CharData from "../../utils/SmashCharacters.json";
-import "./createTournament.css"
+import Byes from "./byes.json";
+import "./createTournament.css";
 
 function CreateTournament(props) {
 
@@ -53,13 +54,20 @@ function CreateTournament(props) {
         setTourneyState({ ...tourneyState, participants: event.target.innerText})
     };
     const launchTourney = () => {
-        if(parseInt(tourneyState.participants) > 1){
+        if(parseInt(tourneyState.participants) > 1 && currCharacter.isSelected === true){
+        let tournamentParticipants;
+            if(tourneyState.participants === "4"){
+                tournamentParticipants = Byes.four;
+            }
+            else{
+                tournamentParticipants = Byes.eight;
+            }
         const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6);
         const character = CharData.characters.find(character => character.id === tourneyState.userCharacter);
         const tourneyData = {
             lobbyCode: lobbyCode,
             tournamentSize: tourneyState.participants,
-            participants: [{ name: name, portrait: portrait, character: character }],
+            participants: [{ name: name, portrait: portrait, character: character }, ...tournamentParticipants],
             admin: name
         };
         API.createTournament(lobbyCode, tourneyData)
@@ -74,7 +82,7 @@ function CreateTournament(props) {
             });
         }
         else{
-            alert("Invalid Amount Of Tournament Participants")
+            alert("Please Select A Character Before Creating A Tournament")
         }
     };
 
@@ -138,7 +146,7 @@ function CreateTournament(props) {
                             </div>
                             <button
                                 onClick={launchTourney}
-                            >Go Smashing</button>
+                            >Create Tournament</button>
                         </Modal>
                         <button className="createButton" onClick={modalToggle}>Smash Time</button>
                     </div >

@@ -4,8 +4,12 @@ const Schema = mongoose.Schema;
 const tournamentSchema = new Schema({
   lobbyCode: { type: String, required: true },
   tournamentSize:"",
+  tournamentLaunched:false,
   participants: [],
-  rounds:{},
+  round:{type:Number},
+  round1:[],
+  round2:[],
+  round3:[],
   admin:{ type: String, required: true }
 });
 

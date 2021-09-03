@@ -1,0 +1,70 @@
+{
+    "four": [
+        {
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },
+        {
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },
+        {
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        }
+    ],
+    "eight":[
+        {
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        },{
+            "character": {
+                "portrait": "https://ssb.wiki.gallery/images/a/a2/SSBU_spirit_Smash_Ball.png",
+                "color": "gray"
+            },
+            "name": "Bye"
+        }
+    ]
+}

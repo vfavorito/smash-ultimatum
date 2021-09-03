@@ -40,6 +40,9 @@ const API = {
     },
     addTournamentParticipant: function(lobbyCode,participantData){
         return axios.put("/api/tournaments/addParticipant/" + lobbyCode, participantData)
+    },
+    updateTournament: function(lobbyCode, data){
+        return axios.put("/api/tournaments/update/" + lobbyCode, data);
     }
 };
 export default API;

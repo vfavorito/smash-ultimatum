@@ -77,7 +77,7 @@ function IronMan() {
                         <h4 id="joinText">Join An Iron Man Arena By Entering The Arena's Lobby Code</h4>
                         <input onChange={handleInputChange} placeholder="Lobby Code" />
                         <br />
-                        <button id="joinButton" onClick={joinArena}>Join</button>
+                        <button id="joinButton" onClick={joinArena}>Join Arena</button>
                     </div>
                 </Col>
             </Row>

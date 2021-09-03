@@ -7,10 +7,10 @@ function FavCharStats(props) {
         console.log(props.stats,"props.stats")
         return (
             <div id="charCard">
-                <h4>{props.stats.quote}</h4>
+                <h3>{props.stats.quote}</h3>
                 <img id="charImg" src={props.stats.portrait} alt="character portrait" />
-                <h5>Wins: {props.stats.stats.wins}</h5>
-                <h5>Loses: {props.stats.stats.losses}</h5>
+                <h4>Wins: {props.stats.stats.wins}</h4>
+                <h4>Loses: {props.stats.stats.losses}</h4>
             </div>
         )
     }
