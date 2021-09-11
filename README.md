@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview:
-Smash Ultimatum is an application that allows users to create and join Super Smash Bros. Ultimate Iron Man Arenas as well as Tournaments.  Every match that a user participates in the results are saved under that users account.  This was primarily accomplished using React, Javascript, Express, and Mongo.
+Smash Ultimatum is an application that allows users to create and join Super Smash Bros. Ultimate Iron Man Arenas as well as Tournaments.  Every match that a user participates in, the results are saved under that user's account.  This was primarily accomplished using React, Javascript, Express, and Mongo.
 
 ### Table of Contents:
 1. [How it works](#How-it-works)
@@ -16,7 +16,7 @@ Smash Ultimatum is an application that allows users to create and join Super Sma
 8. [License](#License)
 
 ### How it works!
-Once a user visits the app the user will need to login via their Google account.  After logging in the user will be redirected to the Main Dashboard of the app.  Here a user can decide to either create or join an Iron Man Arena or Tournament.  They can also view their account stats.  To Join either a Tournament or an Iron Man all you need is the Tournament or Arena Lobby Code.  There are also both Iron Man and Tournament Leaderboards to check out how you stand against all other users.  
+Once a user visits the app the user will need to login via their Google account.  After logging in the user will be redirected to the Main Dashboard of the app.  Here a user can decide to either create or join an Iron Man Arena or Tournament.  They can also view their account stats.  To join either a Tournament or an Iron Man Arena all you need is the Tournament or Arena lobby code.  There are also both Iron Man and Tournament Leaderboards to check out how you stand against all other users.  
 
 <br/>
 
