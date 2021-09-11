@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import API from "../../utils/API";
-import { Row, Col, Table } from "react-bootstrap";
-import "./leaderBoard.css"
+import { Container, Row, Col, Table } from "react-bootstrap";
+import "./ironManLeaderboard.css"
 
 function LeaderBoard() {
     // state for holding all users in database
@@ -11,8 +11,6 @@ function LeaderBoard() {
         API.getAllUsers()
             .then((res) => {
                 setUsers(res.data);
-                console.log(users, "users")
-                console.log(res.data, "res.data")
             })
     }, []);
     // once the users state is set render table 
@@ -20,6 +18,12 @@ function LeaderBoard() {
         // sorting the users array by most wins to least
         users.sort((a, b) => parseFloat(b.ironManStats.wins) - parseFloat(a.ironManStats.wins));
         return (
+            <Container fluid>
+                <Row>
+                    <Col sm={12} md={12} id="leaderboardHeader">
+                    <h2>Iron Man Leaderboard</h2>
+                    </Col>
+                </Row>
             <Row>
                 <Col sm={12} md={12} id="leaderBoard">
                     <Table striped bordered hover >
@@ -52,6 +56,7 @@ function LeaderBoard() {
                     </Table>
                 </Col>
             </Row>
+            </Container>
         )
     }
     else {

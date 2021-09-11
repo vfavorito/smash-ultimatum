@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./pages/LoginScreen/loginScreen";
 import Dashboard from "./pages/MainDashboard/mainDashboard";
 import Arena from "./pages/Arena/arena";
+import Tournament from "./pages/Tournament/tournament";
 import axios from "axios";
 import API from "./utils/API";
 import UserContext from "./utils/UserContext";
@@ -60,6 +61,7 @@ function App() {
                 <Dashboard updateContext={updateContext} />
               </Route>
               <Route path="/arena" component={Arena} />
+              <Route path="/tournament" component={Tournament} />
             </Switch>
           </BrowserRouter>
         </UserContext.Provider>

@@ -41,7 +41,10 @@ function CreateIronMan(props) {
     });
     // function that is run when create arena button is clicked
     const launchArena = () => {
-        const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6)
+        if(arenaState.brawlers !== ""){
+
+        
+        const lobbyCode = Date.now().toString().substring(Date.now().toString().length - 6);
         // function that generates an array of random numbers 1-72 with no repeats the length of arena team size
         const roster = (brawlers) => {
             const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
@@ -66,31 +69,29 @@ function CreateIronMan(props) {
             brawlers: arenaState.brawlers,
             lobbyCode: lobbyCode.substring(lobbyCode.length - 6),
             participants: { name: name, portrait: portrait, squad: squad, wins: 0, currCharacter:squad[0].name },
-            admin:name
+            admin:name,
+            vote:{voteOpen:false, yays:0, nays:0}
         }
         // saving the arena to the database
         API.saveArena(arenaData, lobbyCode)
             .then(async (res) => {
                 try {
                     await props.updateContext(res.data.lobbyCode, res.data.participants, res.data.brawlers)
+                    history.push("/arena/" + lobbyCode)
                 }
                 catch (err) {
                     throw err
                 }
             });
-    }
-
-    // once the lobby Code is changed reroute to the arena page
-    useEffect(() => {
-        if (LobbyCode.length === 6) {
-            history.push("/arena/" + LobbyCode);
         }
-    }, [LobbyCode]);
+        else{
+            alert("Please Set How Many Brawlers On A Squad")
+        }
+    }
 
     // function run everytime there is an input change on the input bar in modal
     const handleInputChange = (event) => {
             setArenaState({ ...arenaState, brawlers: event.target.value })
-        
     }
 
     return (
@@ -98,7 +99,7 @@ function CreateIronMan(props) {
             <Row>
                 <Col sm={12} md={12}>
                     <div id="createIronMan">
-                        <h1>Create</h1>
+                        <h1>Create Iron Man</h1>
                         <h4 id="createText">Create An Iron Man Arena For Others To Join And Set The Team Size</h4>
                         <Modal
                             isOpen={modalIsOpen}
@@ -122,7 +123,7 @@ function CreateIronMan(props) {
                             <br />
                             <button
                                 onClick={launchArena}
-                            >Go Smashing</button>
+                            >Create Arena</button>
                         </Modal>
                         <button className="createButton" onClick={modalToggle}>Smash Time</button>
                     </div >

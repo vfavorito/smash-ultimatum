@@ -1,0 +1,21 @@
+#boardPortrait{
+    width:75px;
+    border-radius: 100%;
+}
+#leaderBoard{
+    text-align: center;
+    overflow: auto;
+    height:520px;
+    margin-top: 35px;
+}
+.table{
+    background-color: rgb(124, 124, 124);
+}
+#tableRow{
+    vertical-align: middle;
+    font-size: x-large;
+}
+#leaderboardHeader{
+    text-align: center;
+    margin-top:16px;
+}

@@ -27,10 +27,29 @@
     text-decoration: underline;
 }
 .nav.nav-pills .nav-link{
-    color:black;
-    font-size: x-large;
+    width:300px;
+    font-size: large;
     border-style: double;
+    margin:2px;
 }
 .nav.nav-pills .nav-link:hover{
     text-decoration: underline;
+}
+.btn-secondary{
+    background: rgb(45,45,45);
+    background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(124,124,124,1) 50%, rgba(160,160,160,1) 100%);
+    width:300px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:44px;
+    text-align: center;
+}
+
+#navPill1, #navPill2, #navPill3, #navPill4, #navPill5, #navPill6, #navPill7, #navPill8 {
+    background: rgb(45,45,45);
+    background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(124,124,124,1) 50%, rgb(160, 160, 160) 100%);
+}
+.dropdown-menu.show {
+    display: block;
+    background-color: rgb(202, 202, 202);
 }
